@@ -3,7 +3,7 @@ package bit.javaoop;
 public class Employee extends AbstractEmployee {
 
 
-    public Employee(String name, double salary) {
+    Employee(String name, double salary) {
         super(name, salary);
     }
 
@@ -11,4 +11,6 @@ public class Employee extends AbstractEmployee {
     public boolean isSatisfied() {
         return getSalary() > 10_000;
     }
+
+
 }
