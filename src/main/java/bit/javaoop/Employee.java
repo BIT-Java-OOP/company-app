@@ -1,6 +1,6 @@
 package bit.javaoop;
 
-public class Employee extends AbstractEmployee {
+public class Employee extends AbstractEmployee implements ISubordinate{
 
 
     public Employee(String name, double salary) {
