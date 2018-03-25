@@ -1,14 +1,11 @@
 package bit.javaoop;
 
 public class Employee extends AbstractEmployee {
-
-
-    public Employee(String name, double salary) {
+    public Employee(String name, double salary){ //konstruktor
         super(name, salary);
     }
-
-    @Override
-    public boolean isSatisfied() {
-        return getSalary() > 10_000;
+    public boolean isSatisfied(){
+        return getSalary() > 10_000; //mozna pisac podkreslniki
     }
+
 }

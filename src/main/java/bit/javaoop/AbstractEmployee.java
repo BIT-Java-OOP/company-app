@@ -4,26 +4,23 @@ public abstract class AbstractEmployee {
     private String name;
     private double salary;
 
-    public AbstractEmployee(String name, double salary) {
+    public AbstractEmployee(String name, double salary){
         this.name = name;
         this.salary = salary;
     }
 
     public abstract boolean isSatisfied();
 
-    public String getName() {
+    public String getName(){
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getSalary() {
+    public double getSalary(){
         return salary;
     }
-
-    public void setSalary(double salary) {
+    public void setSalary(double salary){
         this.salary = salary;
+    }
+    public void getName(String name){
+        this.name = name;
     }
 }
