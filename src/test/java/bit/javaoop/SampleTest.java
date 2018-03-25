@@ -14,11 +14,10 @@ class SampleTest {
 
     @Test
     void shouldEvaluateToTrue() {
-        //given
         boolean someVariable = false;
-        //when
+
         someVariable = Boolean.logicalXor(!someVariable, someVariable);
-        //then
+
         assertTrue(someVariable);
     }
 }
