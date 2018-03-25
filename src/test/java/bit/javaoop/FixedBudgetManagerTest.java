@@ -20,10 +20,6 @@ class FixedBudgetManagerTest {
     }
 
     @Test
-    void hire() {
-    }
-
-    @Test
     void getBudget() {
         FixedBudgetManager manager = new FixedBudgetManager("Manager", 25_000, 30_000);
 
