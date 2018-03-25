@@ -26,4 +26,9 @@ public abstract class AbstractEmployee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return "        " + name + " - Employee\n";
+    }
 }
