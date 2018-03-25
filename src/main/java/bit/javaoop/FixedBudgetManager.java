@@ -9,8 +9,8 @@ public class FixedBudgetManager extends Manager {
     }
 
     @Override
-    public boolean canHire() {
-        return getTotalEmpSalary()< Budget;
+    public boolean canHire(Employee e) {
+        return (getTotalEmpSalary()+e.getSalary())< Budget;
     }
 
     @Override

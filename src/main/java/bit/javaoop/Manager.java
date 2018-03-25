@@ -10,7 +10,7 @@ public abstract class Manager extends AbstractEmployee {
         super(name, salary);
     }
 
-    public abstract boolean canHire();
+    public abstract boolean canHire(Employee e);
 
     public void hire(Employee e){
         Hired.add(e);

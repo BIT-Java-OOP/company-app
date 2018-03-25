@@ -9,4 +9,8 @@ public class CEO {
     public void addManager(Manager m) {
         Managers.add(m);
     }
+
+    public ArrayList<Manager> getManagers() {
+        return Managers;
+    }
 }
