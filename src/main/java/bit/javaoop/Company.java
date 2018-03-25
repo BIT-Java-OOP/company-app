@@ -17,12 +17,12 @@ public class Company {
     @Override
     public String toString() {
 
-        String result=this.getName()+"\n";
+        String result=this.getName()+"\n"+"CEO: "+CEO.getName()+"\n";
 
         for (Manager m : CEO.getManagers()){
-            result+="\t"+m.getName()+"\n";
+            result+="\t MANAGER: "+m.getName()+"\n";
             for (Employee e : m.Hired){
-                result+="\t\t"+e.getName()+"\n";
+                result+="\t\t EMPLOYEE: "+e.getName()+"\n";
             }
         }
 
