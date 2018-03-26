@@ -46,6 +46,7 @@ class CompanyTest {
         company.ceo.listofManagers.get(1).HireEmployee(new Employee("Frodo", 5_000));
 
         String str="Zbyszek- CEO \n\tMaciek- Manager \n\t\tWacek- Employee \n\t\tLeszek- Employee \n\tKrzysiek- Manager \n\t\tFrodo- Employee \n";
+
         assertEquals(str,company.toString());
 
     }

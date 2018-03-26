@@ -21,14 +21,13 @@ class FixedBudgetManagerTest {
 
     @Test
     void shouldBeSatisfied() {
-        //given
         FixedBudgetManager manager=new FixedBudgetManager("Maciek", 25_000, 20_000);
         manager.listofEmployees=new ArrayList<>();
         manager.HireEmployee(new Employee("Wacek", 5_000));
         manager.HireEmployee(new Employee("Leszek", 4_000));
-        //when
+
         boolean result = manager.isSatisfied();
-        //then
+
         assertTrue(result);
     }
 
@@ -39,9 +38,9 @@ class FixedBudgetManagerTest {
         manager.listofEmployees=new ArrayList<>();
         manager.HireEmployee(new Employee("Wacek", 5_000));
         manager.HireEmployee(new Employee("Leszek", 4_000));
-        //when
+
         boolean result = manager.isSatisfied();
-        //then
+
         assertFalse(result);
     }
 
@@ -50,9 +49,9 @@ class FixedBudgetManagerTest {
     {
         FixedBudgetManager manager=new FixedBudgetManager("Maciek", 25_000, 20_000);
         manager.listofEmployees=new ArrayList<>();
-        //when
+
         boolean result = manager.isSatisfied();
-        //then
+
         assertFalse(result);
     }
 }
