@@ -7,8 +7,16 @@ public class Employee extends AbstractEmployee {
         super(name, salary);
     }
 
-    @Override
+
     public boolean isSatisfied() {
-        return getSalary() > 10_000;
+        return this.getSalary() > 10000.0;
     }
+
+    @Override
+    public  String toString(){
+
+        return this.getName()+ "  " + this.getSalary();
+    }
+
+
 }
