@@ -5,9 +5,11 @@ import java.util.List;
 public class CEO{
     List<Manager> listofManagers;
     String name;
+    double salary;
 
-    public CEO(String name) {
+    public CEO(String name, double salary) {
         this.name = name;
+        this.salary=salary;
     }
 
     public String getName() {

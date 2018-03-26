@@ -29,6 +29,12 @@ public class FixedBudgetManager extends Manager{
 
     @Override
     public boolean isSatisfied() {
-        return (getSalary() >20_000 && getBudget()<15_000);
+        double sumofSalaries=0;
+        for(Employee e: listofEmployees)
+        {
+            sumofSalaries+=e.getSalary();
+        }
+        double actualBudget=budget-sumofSalaries;
+        return (getSalary() >20_000 && actualBudget<15_000);
     }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Company company=new Company("BestCompany");
-                company.ceo=new CEO("Zbyszek");
+                company.ceo=new CEO("Zbyszek", 50_000);
                 company.ceo.listofManagers=new ArrayList<>();
                     company.ceo.HireManager(new FixedBudgetManager("Maciek", 25_000, 10_000));
                     company.ceo.listofManagers.get(0).listofEmployees=new ArrayList<>();
