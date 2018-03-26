@@ -1,4 +1,4 @@
-package bit.javaoop;
+
 
 public class Employee extends AbstractEmployee {
 
