@@ -25,4 +25,12 @@ public class FixedBudgetManager extends Manager {
         }
         return sum;
     }
+
+    public int getBudget() {
+        return Budget;
+    }
+
+    public void setBudget(int budget) {
+        Budget = budget;
+    }
 }

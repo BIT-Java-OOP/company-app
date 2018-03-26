@@ -23,4 +23,12 @@ public class FixedEmploeeNumberManager extends Manager {
         super.hire(e);
         EmployeeLimit--;
     }
+
+    public int getEmployeeLimit() {
+        return EmployeeLimit;
+    }
+
+    public void setEmployeeLimit(int employeeLimit) {
+        EmployeeLimit = employeeLimit;
+    }
 }
