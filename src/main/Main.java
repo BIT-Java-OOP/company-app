@@ -7,9 +7,7 @@ public class Main {
         Employee employee = new Employee("Arek", 250000.0);
         FixedBudgetManager manager = new FixedBudgetManager("Pawel", 20000.0, 400000.0);
         if(manager.canHire()){
-
             manager.hire( employee);
-
         }
 
         c.addManager(manager);
