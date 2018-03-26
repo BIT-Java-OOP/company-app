@@ -12,14 +12,6 @@ public abstract class Manager extends AbstractEmployee {
 
     }
 
-    public ArrayList<AbstractEmployee> getListOfEmployees() {
-        return listOfEmployees;
-    }
-
-    public void setListOfEmployees(ArrayList<AbstractEmployee> listOfEmployees) {
-        this.listOfEmployees = listOfEmployees;
-    }
-
     public abstract boolean canHire();
 
     public abstract void hire(AbstractEmployee employee);

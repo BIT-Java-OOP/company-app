@@ -22,13 +22,6 @@ public abstract class AbstractEmployee {
         return salary;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
 
     abstract public String toString(int line);
 }

@@ -1,6 +1,5 @@
 package bit.javaoop;
 
-import java.util.ArrayList;
 
 public class Company {
 
