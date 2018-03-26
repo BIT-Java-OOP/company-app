@@ -3,7 +3,7 @@ package bit.javaoop;
 import java.util.List;
 
 public abstract class Manager extends AbstractEmployee {
-    public List<Employee> listofEmployees;
+    List<Employee> listofEmployees;
 
     Manager(String name, double salary) {
         super(name, salary);
