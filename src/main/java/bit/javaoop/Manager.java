@@ -3,7 +3,7 @@ package bit.javaoop;
 import java.util.LinkedList;
 
 public abstract class Manager extends AbstractEmployee {
-    private LinkedList<Employee> employees;
+    private final LinkedList<Employee> employees;
 
     public Manager(String name, double salary) {
         super(name, salary);

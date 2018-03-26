@@ -10,6 +10,7 @@ public class Main {
         Manager employeeNumberManager = new EmployeeNumberManager("maks",17000, 1);
 
         CEO ceo = new CEO("steve", 2000000);
+        CEO ceo2 = new CEO("majkel",20000);
 
         Company company = new Company("alibaba", ceo);
 
@@ -25,6 +26,9 @@ public class Main {
 
         System.out.println(company.toString());
 
+        company.hireNewCeo(ceo2);
+
+        System.out.println(company.toString());
     }
 
 }

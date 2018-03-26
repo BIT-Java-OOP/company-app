@@ -1,7 +1,5 @@
 package bit.javaoop;
 
-import java.math.BigDecimal;
-
 public class BudgetManager extends Manager {
     private double budget;
 

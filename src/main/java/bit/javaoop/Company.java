@@ -1,9 +1,7 @@
 package bit.javaoop;
 
-import java.util.LinkedList;
-
 public class Company {
-    private String name;
+    private final String name;
     private CEO ceo;
 
     public Company(String name, CEO ceo) {
@@ -11,7 +9,7 @@ public class Company {
         this.ceo = ceo;
     }
 
-    public void hireNewCeo(CEO newCeo){
+    public void hireNewCeo(CEO newCeo) {
         newCeo.setManagers(ceo.getManagers());
         ceo = newCeo;
     }
@@ -19,11 +17,11 @@ public class Company {
     @Override
     public String toString() {
         StringBuilder companyStringBuilder = new StringBuilder();
-        companyStringBuilder.append(ceo.toString() + "\n");
+        companyStringBuilder.append(ceo.toString()).append("\n");
         for (Manager manager : ceo.getManagers()) {
-            companyStringBuilder.append("\t" + manager.toString() + "\n");
+            companyStringBuilder.append("\t").append(manager.toString()).append("\n");
             for (Employee employee : manager.getEmployees()) {
-                companyStringBuilder.append("\t\t" + employee.toString() + "\n");
+                companyStringBuilder.append("\t\t").append(employee.toString()).append("\n");
             }
         }
         return companyStringBuilder.toString();

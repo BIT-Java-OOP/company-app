@@ -3,9 +3,9 @@ package bit.javaoop;
 import java.util.LinkedList;
 
 public class CEO {
-    private String name;
+    private final String name;
     private LinkedList<Manager> managers;
-    private double salary;
+    private final double salary;
 
     public CEO(String name, double salary) {
         this.name = name;
