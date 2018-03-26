@@ -3,31 +3,33 @@ package bit.javaoop;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.LinkedList;
 
-class FixedBudgetMenagerTest {
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+class FixedBudgetManagerTest {
     @BeforeEach
     void setUp() {
     }
 
     @Test
-    void isSatisfied() {
+    void shouldBeSatisfied() {
         //given
-        Menager highSalaryMenager = new FixedBudgetMenager("Bogaty pan menager", 50_000,10_000);
+        Manager highSalaryManager = new FixedBudgetManager("Bogaty pan Manager", 50_000, 10_000,new LinkedList<>());
         //when
-        boolean result = highSalaryMenager.isSatisfied();
+        boolean result = highSalaryManager.isSatisfied();
         //then
         assertTrue(result);
 
     }
 
     @Test
-    void hire() {
+    void shouldBeHired() {
         //given
-        Menager menagerWhoHiresEmployees = new FixedBudgetMenager("Pan Menager",50_000,5_000);
-        AbstractEmployee personWhoWantsToGetAJob = new Employee("Pan Mietek",2_000);
+        Manager managerWhoHiresEmployees = new FixedBudgetManager("Pan Manager", 50_000, 5_000,new LinkedList<>());
+        AbstractEmployee personWhoWantsToGetAJob = new Employee("Pan Mietek", 2_000);
         //when
-        boolean isMietekHired = menagerWhoHiresEmployees.hire(personWhoWantsToGetAJob);
+        boolean isMietekHired = managerWhoHiresEmployees.hire(personWhoWantsToGetAJob);
         //then
         assertTrue(isMietekHired);
     }

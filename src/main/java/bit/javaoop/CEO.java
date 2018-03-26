@@ -1,35 +1,28 @@
 package bit.javaoop;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class CEO {
 
     private String name;
-    private ArrayList<Menager> listOfMenagers;
+    private List<Manager> listOfManagers;
 
-    CEO(String name) {
+    public CEO(String name,List<Manager> listOfManagers) {
         this.name = name;
-        listOfMenagers = new ArrayList<>();
+        this.listOfManagers = listOfManagers;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public List<Manager> getListOfManagers() {
+        return listOfManagers;
     }
 
-    ArrayList<Menager> getListOfMenagers() {
-        return listOfMenagers;
+    public void hireAManager(Manager manager) {
+        listOfManagers.add(manager);
     }
 
-    void hireAMenager(Menager menager){
-        listOfMenagers.add(menager);
-    }
-
-    public void setListOfMenagers(ArrayList<Menager> listOfMenagers) {
-        this.listOfMenagers = listOfMenagers;
-    }
 }

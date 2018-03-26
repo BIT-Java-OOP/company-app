@@ -1,9 +1,11 @@
 package bit.javaoop;
 
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args) {
 
-        CEO ceoOfKompany = new CEO("Ziemek Stefczyk");
+        CEO ceoOfKompany = new CEO("Ziemek Stefczyk",new LinkedList<>());
 
         Company Kompany = new Company("Kompany", ceoOfKompany);
 
@@ -13,17 +15,17 @@ public class Main {
         AbstractEmployee employee3 = new Employee("Janek", 5_000);
         AbstractEmployee employee4 = new Employee("Jagoda", 4_200);
 
-        Menager menager1 = new FixedBudgetMenager("Kasia Majęcka",10_000,14_000);
-        Menager menager2 = new FixedEmployeeNumberMenager("Zenek Kapała",15_000,10);
+        Manager manager1 = new FixedBudgetManager("Kasia Majęcka", 10_000, 14_000,new LinkedList<>());
+        Manager manager2 = new FixedEmployeeNumberManager("Zenek Kapała", 15_000, 10,new LinkedList<>());
 
-        menager1.hire(employee1);
-        menager1.hire(employee2);
+        manager1.hire(employee1);
+        manager1.hire(employee2);
 
-        menager2.hire(employee3);
-        menager2.hire(employee4);
+        manager2.hire(employee3);
+        manager2.hire(employee4);
 
-        ceoOfKompany.hireAMenager(menager1);
-        ceoOfKompany.hireAMenager(menager2);
+        ceoOfKompany.hireAManager(manager1);
+        ceoOfKompany.hireAManager(manager2);
 
         System.out.println(Kompany.toString());
 

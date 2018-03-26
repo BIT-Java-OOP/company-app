@@ -3,6 +3,8 @@ package bit.javaoop;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FixedEmployeeNumberMenagerTest {
@@ -11,11 +13,11 @@ class FixedEmployeeNumberMenagerTest {
     }
 
     @Test
-    void isSatisfied() {
+    void shouldBeSatisfied() {
         //given
-        Menager highSalaryMenager = new FixedEmployeeNumberMenager("Bogaty pan menager", 50_000,0);
+        Manager highSalaryManager = new FixedEmployeeNumberManager("Bogaty pan manager", 50_000,0,new LinkedList<>());
         //when
-        boolean result = highSalaryMenager.isSatisfied();
+        boolean result = highSalaryManager.isSatisfied();
         //then
         assertTrue(result);
     }
@@ -23,7 +25,7 @@ class FixedEmployeeNumberMenagerTest {
     @Test
     void hire() {
         //given
-        Menager highSalaryMenager = new FixedEmployeeNumberMenager("Pan Menager", 50_000,10);
+        Manager highSalaryMenager = new FixedEmployeeNumberManager("Pan Manager", 50_000,10,new LinkedList<>());
         AbstractEmployee giveMeAJob = new Employee("Gosia",3_000);
         //when
         boolean result = highSalaryMenager.hire(giveMeAJob);

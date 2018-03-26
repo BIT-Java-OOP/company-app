@@ -12,23 +12,17 @@ public class Company {
 
     @Override
     public String toString() {
-        StringBuilder letsBuildAHierarchy = new StringBuilder();
+        StringBuilder companyHierarchyDisplayBuilder = new StringBuilder();
 
-        letsBuildAHierarchy.append(currentCEO.getName()+" - CEO\n");
+        companyHierarchyDisplayBuilder.append(currentCEO.getName() + " - CEO\n");
 
-        for (Menager menager : currentCEO.getListOfMenagers()) {
-            letsBuildAHierarchy.append("\t");
-            letsBuildAHierarchy.append(menager.getName()+" - Menager\n");
-            for (AbstractEmployee employee : menager.getListOfEmployees()) {
-                letsBuildAHierarchy.append("\t\t");
-                letsBuildAHierarchy.append(employee.getName()+" - Employee\n");
+        for (Manager manager : currentCEO.getListOfManagers()) {
+            companyHierarchyDisplayBuilder.append("\t"+manager.getName() + " - Manager\n");
+            for (AbstractEmployee employee : manager.getListOfEmployees()) {
+                companyHierarchyDisplayBuilder.append("\t\t"+employee.getName() + " - Employee\n");
             }
         }
 
-        return letsBuildAHierarchy.toString();
-    }
-
-    public void setCurrentCEO(CEO currentCEO) {
-        this.currentCEO = currentCEO;
+        return companyHierarchyDisplayBuilder.toString();
     }
 }
