@@ -20,6 +20,10 @@ public class Main {
         c.addManager(m2);
         c.addEmployee(m2, new Employee("Bartek", 3000.0));
 
+
         c.display();
     }
+
+
+
 }
