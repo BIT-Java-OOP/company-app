@@ -1,5 +1,7 @@
 package bit.javaoop.people;
 
+import java.util.Objects;
+
 public abstract class AbstractEmployee {
     private String name;
     private double salary;
@@ -21,5 +23,19 @@ public abstract class AbstractEmployee {
 
     public double getSalary() {
         return salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AbstractEmployee that = (AbstractEmployee) o;
+        return Double.compare(that.salary, salary) == 0 &&
+                Objects.equals(name, that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, salary);
     }
 }
