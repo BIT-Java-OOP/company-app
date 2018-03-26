@@ -1,8 +1,8 @@
 package bit.javaoop;
 
 public abstract class AbstractEmployee {
-    private String name;
-    private double salary;
+    protected String name;
+    protected double salary;
 
     public AbstractEmployee(String name, double salary) {
         this.name = name;
