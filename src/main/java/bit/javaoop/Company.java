@@ -9,6 +9,10 @@ public class Company {
         this.name = name;
     }
 
+    public void hireCeo(CEO ceo) {
+        this.ceo = ceo;
+    }
+
     @Override
     public String toString()
     {
