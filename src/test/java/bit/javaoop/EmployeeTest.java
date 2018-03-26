@@ -13,6 +13,6 @@ class EmployeeTest {
         //when
         boolean result = highSalaryEmployee.isSatisfied();
         //then
-        assertTrue(result);
+        assertTrue(result);assertTrue(result);
     }
 }
