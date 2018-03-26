@@ -8,7 +8,13 @@ public class Employee extends AbstractEmployee {
     }
 
     @Override
+
     public boolean isSatisfied() {
         return getSalary() > 10_000;
+    }
+
+    @Override
+    public String toString() {
+        return getName() + " Employee";
     }
 }

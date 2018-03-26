@@ -1,8 +1,8 @@
 package bit.javaoop;
 
 public abstract class AbstractEmployee {
-    private String name;
-    private double salary;
+    private final String name;
+    private final double salary;
 
     public AbstractEmployee(String name, double salary) {
         this.name = name;
@@ -15,15 +15,10 @@ public abstract class AbstractEmployee {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
+
+
 }
