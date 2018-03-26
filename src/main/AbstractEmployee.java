@@ -1,4 +1,4 @@
-package bit.javaoop;
+
 
 public abstract class AbstractEmployee {
     private String name;
