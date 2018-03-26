@@ -1,4 +1,4 @@
-package bit.javaoop;
+package bit.javaoop.people;
 
 import org.junit.jupiter.api.Test;
 

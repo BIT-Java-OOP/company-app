@@ -1,10 +1,14 @@
-package bit.javaoop;
+package bit.javaoop.people;
 
 public abstract class AbstractEmployee {
     private String name;
     private double salary;
 
-    public AbstractEmployee(String name, double salary) {
+    AbstractEmployee(String name, double salary) {
+        if (name == null) {
+            throw new IllegalArgumentException("Name can not be null!");
+        }
+
         this.name = name;
         this.salary = salary;
     }
@@ -15,15 +19,7 @@ public abstract class AbstractEmployee {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public double getSalary() {
         return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
     }
 }
