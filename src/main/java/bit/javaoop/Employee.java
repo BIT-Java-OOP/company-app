@@ -12,7 +12,7 @@ public class Employee extends AbstractEmployee {
     }
 
     public boolean isSatisfied() {
-        return getSalary() > 10_000;
+        return getSalary() > satisfying_salary;
     }
 
 }

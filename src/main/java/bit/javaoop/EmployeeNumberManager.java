@@ -2,32 +2,33 @@ package bit.javaoop;
 
 public class EmployeeNumberManager extends AbstractManager {
 
-    private int employeeCount;
+    private int employeeSpots;
+    private final int no_more_free_spots=0;
 
-    public EmployeeNumberManager(String name, double salary, Company company, int employeeCount) {
+    public EmployeeNumberManager(String name, double salary, Company company, int employeeSpots) {
         super(name, salary, company);
-        this.employeeCount = employeeCount;
+        this.employeeSpots = employeeSpots;
     }
 
     @Override
-    public boolean canHire(AbstractEmployee employ) {
-        return (employeeCount > 0) && (!this.getEmployeesList().contains(employ));
+    public boolean canHire(AbstractEmployee employee) {
+        return (employeeSpots > 0) && (!this.getEmployeesList().contains(employee));
     }
 
     @Override
-    public void hireNewEmployee(AbstractEmployee employ, Company company) {
-        if (canHire(employ)) {
-            --employeeCount;
-            insertToEmployeesList(employ);
-            if (company.checkIfEmployeeWorkInThisCompany(employ))
-                company.deleteFromEmployeesList(employ);
-            System.out.println("Manager "+ getName() +" has hired "+employ.getName()+".");
+    public void hireNewEmployee(AbstractEmployee employee, Company company) {
+        if (canHire(employee)) {
+            --employeeSpots;
+            insertToEmployeesList(employee);
+            if (company.checkIfEmployeeWorkInThisCompany(employee))
+                company.deleteFromEmployeesList(employee);
+            System.out.println("Manager "+ getName() +" has hired "+employee.getName()+".");
         } else
             System.out.println("Manager "+ getName() +" have no more free spots or have already hired this employee.");
     }
 
     @Override
     public boolean isSatisfied() {
-        return (getSalary() > 20_000) && (employeeCount == 0);
+        return (getSalary() > satisfying_salary) && (employeeSpots == no_more_free_spots);
     }
 }

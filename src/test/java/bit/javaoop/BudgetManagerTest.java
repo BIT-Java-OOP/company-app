@@ -23,7 +23,7 @@ class BudgetManagerTest {
         employee2 = new Employee("Prac2", 10_000);
         employee3 = new Employee("Prac3", 15_000);
         manager1 = new BudgetManager("Gucio", 25_000, 40_000, company);
-        manager2 = new BudgetManager("Guciosław", 10_000, 20_000, company2);
+        manager2 = new BudgetManager("Guciosław", 40_000, 20_000, company2);
     }
 
     @Test

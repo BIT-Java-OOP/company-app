@@ -6,6 +6,7 @@ import java.util.List;
 public abstract class AbstractManager extends AbstractEmployee {
 
     private List<AbstractEmployee> employeesList;
+    public final int satisfying_salary=20000;
 
     public AbstractManager(String name, double salary) {
         super(name, salary);
@@ -22,9 +23,9 @@ public abstract class AbstractManager extends AbstractEmployee {
         return employeesList;
     }
 
-    public abstract boolean canHire(AbstractEmployee employ);
+    public abstract boolean canHire(AbstractEmployee employee);
 
-    public abstract void hireNewEmployee(AbstractEmployee employ, Company company);
+    public abstract void hireNewEmployee(AbstractEmployee employee, Company company);
 
     public void insertToEmployeesList(AbstractEmployee employee) {
         employeesList.add(employee);
@@ -32,10 +33,10 @@ public abstract class AbstractManager extends AbstractEmployee {
 
     @Override
     public String toString() {
-        String returningStringManagerEmployeeList = "\t" + getName() + " - Manager\n";
+        StringBuilder returningStringManagerEmployeeList = new StringBuilder("\t" + getName() + " - Manager\n");
         for (AbstractEmployee employe : employeesList) {
-            returningStringManagerEmployeeList += "\t\t" + employe.getName() + " - Employee\n";
+            returningStringManagerEmployeeList.append("\t\t" + employe.getName() + " - Employee\n");
         }
-        return returningStringManagerEmployeeList;
+        return returningStringManagerEmployeeList.toString();
     }
 }

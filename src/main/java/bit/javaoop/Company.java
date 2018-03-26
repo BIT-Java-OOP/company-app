@@ -47,61 +47,61 @@ public class Company {
 
     @Override
     public String toString() {
-        String returningStringCompanyEmployeeList = "\n" + name + " HIERARCHY\n";
+        StringBuilder returningStringCompanyEmployeeList = new StringBuilder("\n" + name + " HIERARCHY\n");
         if (ceo != null) {
-            returningStringCompanyEmployeeList += ceo.toString();
+            returningStringCompanyEmployeeList.append(ceo.toString());
             for (AbstractEmployee employee : employeesList) {
-                returningStringCompanyEmployeeList += "\t" + employee.getName() + " - Employee\n";
+                returningStringCompanyEmployeeList.append("\t" + employee.getName() + " - Employee\n");
             }
         } else {
-            returningStringCompanyEmployeeList += "No CEO hired\n";
+            returningStringCompanyEmployeeList.append("No CEO hired\n");
             for (AbstractManager manager : managersList) {
-                returningStringCompanyEmployeeList += manager.toString();
+                returningStringCompanyEmployeeList.append(manager.toString());
             }
             for (AbstractEmployee employee : employeesList) {
-                returningStringCompanyEmployeeList += "\t" + employee.getName() + " - Employee\n";
+                returningStringCompanyEmployeeList.append("\t" + employee.getName() + " - Employee\n");
             }
         }
-        return returningStringCompanyEmployeeList;
+        return returningStringCompanyEmployeeList.toString();
     }
 
-    public boolean checkIfEmployeeWorkInThisCompany(AbstractEmployee employe) {
-        return employeesList.contains(employe) || managersList.contains(employe);
+    public boolean checkIfEmployeeWorkInThisCompany(AbstractEmployee employee) {
+        return employeesList.contains(employee) || managersList.contains(employee);
     }
 
-    public void printIfEmployeeIsSatisfied(AbstractEmployee employ) {
-        if (checkIfEmployeeWorkInThisCompany(employ)) {
-            if (employ.isSatisfied()) System.out.println(employ.getName() + " is satisfied.");
-            else System.out.println(employ.getName() + " isn't satisfied.");
+    public void printIfEmployeeIsSatisfied(AbstractEmployee employee) {
+        if (checkIfEmployeeWorkInThisCompany(employee)) {
+            if (employee.isSatisfied()) System.out.println(employee.getName() + " is satisfied.");
+            else System.out.println(employee.getName() + " isn't satisfied.");
         } else
-            System.out.println(employ.getName() + " doesnt't work in " + name);
+            System.out.println(employee.getName() + " doesnt't work in " + name);
     }
 
-    public void printEmployeeName(AbstractEmployee employ) {
-        if (checkIfEmployeeWorkInThisCompany(employ))
-            System.out.println("This employee name is " + employ.getName());
+    public void printEmployeeName(AbstractEmployee employee) {
+        if (checkIfEmployeeWorkInThisCompany(employee))
+            System.out.println("This employee name is " + employee.getName());
         else
-            System.out.println(employ.getName() + " doesnt't work in " + name);
+            System.out.println(employee.getName() + " doesnt't work in " + name);
     }
 
-    public void printEmployeeSalary(AbstractEmployee employ) {
-        if (checkIfEmployeeWorkInThisCompany(employ))
-            System.out.println("This employee salary equals " + employ.getSalary());
+    public void printEmployeeSalary(AbstractEmployee employee) {
+        if (checkIfEmployeeWorkInThisCompany(employee))
+            System.out.println("This employee salary equals " + employee.getSalary());
         else
-            System.out.println(employ.getName() + " doesnt't work in " + name);
+            System.out.println(employee.getName() + " doesnt't work in " + name);
     }
 
-    public void printIfManagerCanHireEmployee(AbstractManager manager, AbstractEmployee employ) {
+    public void printIfManagerCanHireEmployee(AbstractManager manager, AbstractEmployee employee) {
         if (checkIfEmployeeWorkInThisCompany(manager)) {
-            if (manager.canHire(employ)) System.out.println("Manager "+ manager.getName() +" can hire " + employ.getName());
-            else System.out.println("Manager "+ manager.getName() +" can't hire " + employ.getName());
+            if (manager.canHire(employee)) System.out.println("Manager "+ manager.getName() +" can hire " + employee.getName());
+            else System.out.println("Manager "+ manager.getName() +" can't hire " + employee.getName());
         } else
             System.out.println(manager.getName() + " doesnt't work in " + name);
     }
 
-    public void makeManagerHireEmployee(AbstractManager manager, AbstractEmployee employ) {
+    public void makeManagerHireEmployee(AbstractManager manager, AbstractEmployee employee) {
         if (checkIfEmployeeWorkInThisCompany(manager))
-            manager.hireNewEmployee(employ, this);
+            manager.hireNewEmployee(employee, this);
         else
             System.out.println(manager.getName() + " doesnt't work in " + name);
     }

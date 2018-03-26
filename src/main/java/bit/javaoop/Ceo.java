@@ -22,10 +22,10 @@ public class Ceo {
 
     @Override
     public String toString() {
-        String  returningStringCeoEmployeeList = getName() + " - CEO\n";
+        StringBuilder returningStringCeoEmployeeList = new StringBuilder(getName() + " - CEO\n");
         for (AbstractManager manage : managersList) {
-            returningStringCeoEmployeeList += manage.toString();
+            returningStringCeoEmployeeList.append(manage.toString());
         }
-        return returningStringCeoEmployeeList;
+        return returningStringCeoEmployeeList.toString();
     }
 }
