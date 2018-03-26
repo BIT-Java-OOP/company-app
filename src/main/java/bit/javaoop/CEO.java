@@ -1,20 +1,25 @@
 package bit.javaoop;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class CEO {
     private String name;
-    private LinkedList<Manager> managers;
+    private List<AbstractManager> managers = new LinkedList<>();
+
+    public CEO(String name) {
+        this.name = name;
+    }
+
+    public void addManager(AbstractManager manager) {
+        managers.add(manager);
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LinkedList<Manager> getManagers() {
+    public List<AbstractManager> getManagers() {
         return managers;
     }
 }

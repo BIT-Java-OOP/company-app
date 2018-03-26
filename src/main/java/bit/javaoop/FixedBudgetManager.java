@@ -1,6 +1,6 @@
 package bit.javaoop;
 
-public class FixedBudgetManager extends Manager {
+public class FixedBudgetManager extends AbstractManager {
 
     private double maxBudget;
 
@@ -11,7 +11,7 @@ public class FixedBudgetManager extends Manager {
 
     @Override
     public boolean canHireEmployee(AbstractEmployee employee) {
-        return getBudget() < maxBudget;
+        return (getBudget() + employee.getSalary()) <= maxBudget;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class FixedBudgetManager extends Manager {
 
     @Override
     public boolean isSatisfied() {
-        boolean salarySatisfaction = this.getSalary() > 20000;
+        boolean salarySatisfaction = getSalary() > 20000;
         boolean budgetSatisfaction = (maxBudget - getBudget()) < 15000;
         return salarySatisfaction && budgetSatisfaction;
     }

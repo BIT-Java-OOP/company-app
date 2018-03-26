@@ -1,6 +1,6 @@
 package bit.javaoop;
 
-public class FixedEmployeeManager extends Manager {
+public class FixedEmployeeManager extends AbstractManager {
     private int maxEmployees;
 
     public FixedEmployeeManager(String name, double salary, int maxEmployees) {
@@ -10,7 +10,7 @@ public class FixedEmployeeManager extends Manager {
 
     @Override
     public boolean canHireEmployee(AbstractEmployee employee) {
-        return getEmploueeNumber() < maxEmployees;
+        return getEmployeesQuantity() < maxEmployees;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class FixedEmployeeManager extends Manager {
     @Override
     public boolean isSatisfied() {
         boolean salarySatisfaction = getSalary() > 20000;
-        boolean employmentSatisfaction = getEmploueeNumber() == maxEmployees;
+        boolean employmentSatisfaction = getEmployeesQuantity() == maxEmployees;
         return salarySatisfaction && employmentSatisfaction;
     }
 }

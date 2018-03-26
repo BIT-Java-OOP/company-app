@@ -3,8 +3,8 @@ package bit.javaoop;
 import java.util.LinkedList;
 import java.util.List;
 
-public abstract class Manager extends AbstractEmployee {
-    public Manager(String name, double salary) {
+public abstract class AbstractManager extends AbstractEmployee {
+    public AbstractManager(String name, double salary) {
         super(name, salary);
     }
 
@@ -21,7 +21,7 @@ public abstract class Manager extends AbstractEmployee {
                 .sum();
     }
 
-    int getEmploueeNumber() {
+    int getEmployeesQuantity() {
         return employees.size();
     }
 
