@@ -15,4 +15,16 @@ class EmployeeTest {
         //then
         assertTrue(result);
     }
+
+    void shouldNotBeSatisfied()
+    {
+        //given
+        Employee lowSalaryEmployee = new Employee("Biedny pracownik", 500);
+        //when
+        boolean result = lowSalaryEmployee.isSatisfied();
+        //then
+        assertTrue(result);
+    }
+
+
 }
