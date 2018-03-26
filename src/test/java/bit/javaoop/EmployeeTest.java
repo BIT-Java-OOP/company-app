@@ -2,17 +2,17 @@ package bit.javaoop;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 class EmployeeTest {
 
     @Test
     void shouldBeSatisfied() {
-        //given
-        Employee highSalaryEmployee = new Employee("Bogaty pracownik", 50_000);
-        //when
-        boolean result = highSalaryEmployee.isSatisfied();
-        //then
-        assertTrue(result);
+        Employee highSalaryEmployee = new Employee("", 50_000);
+        Employee lowSalaryEmployee = new Employee("", 2_000);
+
+        assertTrue(highSalaryEmployee.isSatisfied());
+        assertFalse(lowSalaryEmployee.isSatisfied());
     }
 }
