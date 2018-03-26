@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CompanyTest {
 
@@ -30,13 +31,18 @@ class CompanyTest {
 
     @Test
     void testCompanyStructure() {
-        assertEquals("Boss - CEO\n" +
+        assertTrue(("Boss - CEO\n" +
+                "\tMan 1 - Manager\n" +
+                "\t\tE1 - Employee\n" +
+                "\t\tE2 - Employee\n" +
+                "\tMan 2 - Manager\n" +
+                "\t\tE3 - Employee\n").equals(myCompany.toString()) ||
+                ("Boss - CEO\n" +
                         "\tMan 1 - Manager\n" +
-                        "\t\tE1 - Employee\n" +
                         "\t\tE2 - Employee\n" +
+                        "\t\tE1 - Employee\n" +
                         "\tMan 2 - Manager\n" +
-                        "\t\tE3 - Employee\n",
-                myCompany.toString());
+                        "\t\tE3 - Employee\n").equals(myCompany.toString()));
     }
 
     @Test
