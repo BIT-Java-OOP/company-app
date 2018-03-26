@@ -1,4 +1,4 @@
-package bit.javaoop;
+
 
 
 public class FixedBudgetManager extends Manager {
