@@ -1,29 +1,39 @@
 package bit.javaoop;
 
-public abstract class AbstractEmployee {
-    private String name;
-    private double salary;
+import java.util.ArrayList;
+import java.util.List;
 
-    public AbstractEmployee(String name, double salary) {
-        this.name = name;
-        this.salary = salary;
+public abstract class AbstractEmployee {
+     private String name;
+    private Float salary;
+    private static List <AbstractEmployee> EmployeeList = new ArrayList<>();
+
+
+    public AbstractEmployee(String name, Float salary)
+    {
+        this.name=name;
+        this.salary=salary;
     }
 
-    public abstract boolean isSatisfied();
+    public AbstractEmployee()
+    {}
+
+    public Float getSalary() {
+        return salary;
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+
+    abstract public boolean isSatisfied();
+    abstract public void addEmployee(AbstractEmployee employee);
+    abstract public String getPosition();
+
+    public static List<AbstractEmployee> getEmployeeList() {
+        return EmployeeList;
     }
 
-    public double getSalary() {
-        return salary;
-    }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
 }
