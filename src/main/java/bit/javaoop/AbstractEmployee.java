@@ -26,4 +26,6 @@ public abstract class AbstractEmployee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+
 }
