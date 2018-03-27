@@ -10,11 +10,11 @@ public class Main {
         ceo.addMenager(manager2);
 
         AbstractEmployee employee1= new Employee("Wacek", 25);
-        manager1.hire(employee1);
+        manager1.hireIfPossible(employee1);
         AbstractEmployee employee2= new Employee("Leszek", 25000);
-        manager1.hire(employee2);
+        manager1.hireIfPossible(employee2);
         AbstractEmployee employee3= new Employee("Frodo", 1500);
-        manager2.hire(employee3);
+        manager2.hireIfPossible(employee3);
 
         company.hireCEO(ceo);
         System.out.println(company);

@@ -14,12 +14,12 @@ public abstract class AbstractManager extends AbstractEmployee {
 
     protected List<AbstractEmployee> employees = new LinkedList<>();
 
-    public abstract boolean canhire(AbstractEmployee employee);
+    public abstract boolean canHire(AbstractEmployee employee);
 
-    public double getbudget(){
-        double budget=0;
-        for (AbstractEmployee e:employees) {
-            budget+=e.getSalary();
+    public double getEmployeeSalaty() {
+        double budget = 0;
+        for (AbstractEmployee e : employees) {
+            budget += e.getSalary();
         }
         return budget;
     }
@@ -27,5 +27,6 @@ public abstract class AbstractManager extends AbstractEmployee {
     public int getEmployyesNumer() {
         return employees.size();
     }
-    public abstract void hire(AbstractEmployee employee);
+
+    public abstract void hireIfPossible(AbstractEmployee employee);
 }

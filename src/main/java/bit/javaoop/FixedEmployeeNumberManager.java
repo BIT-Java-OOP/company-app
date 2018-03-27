@@ -1,24 +1,25 @@
 package bit.javaoop;
 
 public class FixedEmployeeNumberManager extends AbstractManager {
-    int maxemployees;
-    public FixedEmployeeNumberManager(String name, double salary, int maxemployees) {
+    int maxEmployees;
+
+    public FixedEmployeeNumberManager(String name, double salary, int maxEmployees) {
         super(name, salary);
-        this.maxemployees=maxemployees;
+        this.maxEmployees = maxEmployees;
     }
 
     @Override
-    public boolean canhire(AbstractEmployee employee) {
-        return (getEmployyesNumer()<maxemployees);
+    public boolean canHire(AbstractEmployee employee) {
+        return (getEmployyesNumer() < maxEmployees);
     }
 
     @Override
-    public void hire(AbstractEmployee employee) {
-    if(canhire(employee))  employees.add(employee);
+    public void hireIfPossible(AbstractEmployee employee) {
+        if (canHire(employee)) employees.add(employee);
     }
 
     @Override
     public boolean isSatisfied() {
-        return (getSalary()>=20000 && maxemployees==getEmployyesNumer());
+        return (getSalary() >= 20000 && maxEmployees == getEmployyesNumer());
     }
 }
