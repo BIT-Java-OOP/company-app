@@ -9,23 +9,14 @@ public class Company {
     List<Manager> managersList;
     public void createCompany (String companyName, String CeoName, double ceoSalary) {
 
-        public Company(String CEOname, double CEOsalary) {
+     public Company(String companyName, String CEOname, double CEOsalary) {
+            this.companyName = companyName;
             this.CEOname = CEOname;
             this.CEOsalary = CEOsalary;
-
         }
     }
-    public String toString(){
-        System.out.println( CEO.toString());
 
-        for ( Manager m : CEO.getManagers ){
-            System.out.println(“\t” + manager toString());
 
-            for ( Employee e : m.getEmployees ){
-                System.out.println(“\t\t” + employee toString());
-            }
-        }
-    }
     public void addManager (Manager manager) {
         managersList.add(manager);
 
@@ -47,5 +38,15 @@ public class Company {
     public void setCEOsalary(double CEOsalary) {
         this.CEOsalary = CEOsalary;
     }
-    
+   // public String toString(){
+     //   System.out.println( CEOname.toString());
+
+ //       for ( Manager m : CEOname.addManager ){
+   //         System.out.println(“\t” + m.toString());    pokazuje błędy z np. \t
+
+         //   for ( Employee e : m.getEmployees ){
+           //     System.out.println(“\t\t” + e.toString());
+           // }
+       // }
+    }
 }

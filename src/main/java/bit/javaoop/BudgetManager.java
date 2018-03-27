@@ -21,6 +21,8 @@ public class BudgetManager extends Manager {
         return getSalary() > 20_000 && budgetLeft < 15_000;
     }
 
-
+    public void setBudget(double budget) {
+        this.budget = budget;
+    }
 }
 

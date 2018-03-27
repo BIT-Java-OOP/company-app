@@ -9,17 +9,18 @@ public abstract class Manager extends AbstractEmployee{
     public Manager(String name, double salary) {
         super(name, salary);
     }
-    private List<Employee> employeesList;
+    private static List<Employee> employeesList;
+    static List<String> managers = new List<>();
     public Manager(String name, double salary) {
         super(name, salary);
-
+        managers.add(name);
     }
     public abstract boolean canHireEmployee(Employee employee);
-    public void addemployee (Employee employee) {
+    public void addEmployee (Employee employee) {
         employeesList.add(employee);
         budgetLeft -= setSalary();
         employeesLimit--;
     }
     public void setEmployeesList(List<Employee> employeesList) {
-        this.employeesList = addemployee(Employee employee);}
+        this.employeesList = addEmployee(Employee);}
 }
