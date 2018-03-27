@@ -20,5 +20,6 @@ public class BudgetManager extends Manager {
     public boolean isSatisfied() {
         return getSalary() > 20_000; and budgetLeft; < 15_000;
     }
+
 }
 
