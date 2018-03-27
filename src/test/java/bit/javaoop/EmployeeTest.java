@@ -9,7 +9,7 @@ class EmployeeTest {
     @Test
     void shouldBeSatisfied() {
         //given
-        Employee highSalaryEmployee = new Employee("Bogaty pracownik", 50_000);
+        Employee highSalaryEmployee = new Employee("Bogaty pracownik", 50000);
         //when
         boolean result = highSalaryEmployee.isSatisfied();
         //then
