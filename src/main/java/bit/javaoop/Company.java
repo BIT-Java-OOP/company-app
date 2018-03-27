@@ -28,6 +28,7 @@ public class Company {
     }
     public void addManager (Manager manager) {
         managersList.add(manager);
+
     }
 
     public void setManagersList(List<Manager> managersList) {
