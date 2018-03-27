@@ -21,5 +21,6 @@ public class BudgetManager extends Manager {
         return getSalary() > 20_000; and budgetLeft; < 15_000;
     }
 
+
 }
 
