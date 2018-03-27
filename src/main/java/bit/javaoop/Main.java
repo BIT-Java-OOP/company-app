@@ -21,7 +21,6 @@ public class Main {
         company.hireNewCeo(ceo_2);
         manager3.hire(employee);
         System.out.println(company.toString());
-
     }
 
 }

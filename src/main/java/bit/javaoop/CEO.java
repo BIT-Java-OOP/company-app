@@ -2,6 +2,7 @@ package bit.javaoop;
 import java.util.ArrayList;
 import java.util.List;
 public class CEO {
+
     private String name;
     private List<AbstractManager> ManagerLists = new ArrayList<>();
 
@@ -9,16 +10,8 @@ public class CEO {
         return name;
     }
 
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public List<AbstractManager> getManagerLists() {
+    public List<AbstractManager> ManagerList() {
         return ManagerLists;
-    }
-
-    public void setManagerLists(List<AbstractManager> managerLists) {
-        ManagerLists = managerLists;
     }
 
     public CEO(String name) {
@@ -28,12 +21,13 @@ public class CEO {
         ManagerLists.add(manager);
     }
 
-    public String printManagers(){
-        String output;
-        output = "\t" + getName() + " - CEO\n";
-        for(int i = 0; i < ManagerLists.size(); i++){
-            output += ManagerLists.get(i).printEmployees();
+    @Override
+    public String toString(){
+        StringBuilder output;
+        output = new StringBuilder("\t" + getName() + " - CEO\n");
+        for (AbstractManager ManagerList : ManagerLists) {
+            output.append(ManagerList.toString());
         }
-        return output;
+        return output.toString();
     }
 }

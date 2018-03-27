@@ -9,33 +9,17 @@ public class FixedEmployeeNumberManager extends AbstractManager {
         this.limit = limit;
     }
 
-    public int getLimit() {
-        return limit;
-    }
-
-    public void setLimit(int limit) {
-        this.limit = limit;
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     @Override
     public boolean isSatisfied() {
         return getSalary() > 20_000 && count == limit;
     }
 
     @Override
-    public boolean CanHire(AbstractEmployee employee) {
+    public boolean canHire(AbstractEmployee employee) {
         return count < limit;
     }
     public void hire(AbstractEmployee employee) {
-        if(CanHire(employee)) {
+        if(canHire(employee)) {
             getEmployeeList().add(employee);
             count++;
         }

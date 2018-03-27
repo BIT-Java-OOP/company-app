@@ -11,22 +11,22 @@ class EmployeeTest {
     void setUp() {
     }
     @Test
-    void ShouldBeTrue(){
+    void shouldBeSaisfied(){
         AbstractEmployee employee = new Employee("Stefan",25_000);
         assertTrue(employee.isSatisfied());
     }
     @Test
-    void ShouldBeFalse(){
+    void shouldNotBeSaitisfied(){
         AbstractEmployee employee = new Employee("kek",8_000);
         assertFalse(employee.isSatisfied());
     }
     @Test
-    void CheckName(){
+    void checkName(){
         AbstractEmployee employee = new Employee("maciek", 2_000);
-        assertTrue(employee.getName() == "maciek");
+        assertTrue(employee.getName().equals("maciek"));
     }
     @Test
-    void CheckSalary(){
+    void checkSalary(){
         AbstractEmployee employee = new Employee("maciek", 2_000);
         assertTrue(employee.getSalary() == 2_000);
     }

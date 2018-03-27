@@ -4,33 +4,26 @@ public class Company {
     private String name;
     private CEO employee;
 
-    public void hireNewCeo(CEO new_ceo){
-        if(employee == null) employee = new_ceo;
-        else{
-            for(int i = 0; i < employee.getManagerLists().size(); i++){
-                new_ceo.addManager(employee.getManagerLists().get(i));
-            }
-            employee = new_ceo;
-        }
+    public Company(String name) {  //constructors should be placed first, press ctr + alt + sfhit + L
+        this.name = name;
     }
 
-    public Company(String name){
-        this.name = name;
+    public void hireNewCeo(CEO newCeo) {
+        if (employee == null) employee = newCeo;
+        else {
+            for (int i = 0; i < employee.ManagerList().size(); i++) {
+                newCeo.addManager(employee.ManagerList().get(i));
+            }
+            employee = newCeo;
+        }
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Override
-    public String toString(){
-        String output;
-        output = getName() + " - Company name\n";
-        output += employee.printManagers();
-        return output;
+    public String toString() {
+        return getName() + " - Company name\n" + employee.toString();
     }
 }

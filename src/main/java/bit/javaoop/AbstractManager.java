@@ -12,19 +12,16 @@ public abstract class AbstractManager extends AbstractEmployee {
         return EmployeeList;
     }
 
-    public void setEmployeeList(List<AbstractEmployee> employeeList) {
-        EmployeeList = employeeList;
-    }
-
-    public String printEmployees(){
-        String output;
-        output = "\t\t" + getName() + " - Manager\n";
-        for(int i = 0; i < EmployeeList.size(); i++){
-            output += "\t\t\t" + EmployeeList.get(i).getName() + " - Employee\n";
+    @Override
+    public String toString(){
+        StringBuilder output;
+        output = new StringBuilder("\t\t" + getName() + " - Manager\n");
+        for (AbstractEmployee aEmployeeList : EmployeeList) {                              //for each loop better than iterate like in cpp
+            output.append("\t\t\t").append(aEmployeeList.getName()).append(" - Employee\n"); // stringBuilder than  output +=
         }
-        return output;
+        return output.toString();
     }
 
     public abstract void hire(AbstractEmployee employee);
-    public abstract boolean CanHire(AbstractEmployee employee);
+    public abstract boolean canHire(AbstractEmployee employee);
 }
