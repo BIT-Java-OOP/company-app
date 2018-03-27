@@ -9,7 +9,7 @@ class FixedEmployeeNumberManagerTest {
 
 
     @Test
-    void isSatisfied_successfully() {
+    void shouldBeSatisfiedWithHighSalaryAndNoVacancyLeft() {
         FixedEmployeeNumberManager happy_manager = new FixedEmployeeNumberManager("Jan", 300_000);
         happy_manager.setEmployeeLimit(1);
         Employee employee = new Employee("Zbyszek", 100_000);
@@ -19,7 +19,7 @@ class FixedEmployeeNumberManagerTest {
     }
 
     @Test
-    void isSatisfied_fail() {
+    void shouldNotBeSatisfiedWithLowSalaryAndNoVacancyLeft() {
         FixedEmployeeNumberManager sad_manager = new FixedEmployeeNumberManager("Jan", 3_000);
         sad_manager.setEmployeeLimit(1);
         Employee employee = new Employee("Zbyszek", 100_000);
@@ -29,7 +29,7 @@ class FixedEmployeeNumberManagerTest {
     }
 
     @Test
-    void hireNewEmployee_successfully() {
+    void succeedInHiringNewEmployee() {
         FixedEmployeeNumberManager manager = new FixedEmployeeNumberManager("Jan", 3_000);
         manager.setEmployeeLimit(1);
         Employee employee = new Employee("Zbyszek", 100_000);
@@ -38,7 +38,7 @@ class FixedEmployeeNumberManagerTest {
     }
 
     @Test
-    void hireNewEmployee_fail() {
+    void failedToHireNewEmployee() {
         FixedEmployeeNumberManager manager = new FixedEmployeeNumberManager("Jan", 3_000);
         manager.setEmployeeLimit(0);
         Employee employee = new Employee("Zbyszek", 100_000);

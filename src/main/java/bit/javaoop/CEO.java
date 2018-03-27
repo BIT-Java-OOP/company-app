@@ -1,10 +1,11 @@
 package bit.javaoop;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CEO {
-    String name;
-    ArrayList<Manager> managerList;
+    private String name;
+    private List<Manager> managerList;
 
     public CEO(String name) {
         this.name = name;
@@ -15,4 +16,11 @@ public class CEO {
         managerList.add(manager);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public List<Manager> getManagerList() {
+        return managerList;
+    }
 }

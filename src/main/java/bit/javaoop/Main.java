@@ -14,7 +14,7 @@ public class Main {
 
         CEO boss = new CEO("Zbyszek");
 
-        Company corpo = new Company("Java OPP", boss);
+        Company corpo = new Company("Java Object Oriented Programming", boss);
 
 
         employee1.answerQuestions();

@@ -1,6 +1,7 @@
 package bit.javaoop;
 
 public class FixedEmployeeNumberManager extends Manager {
+    private static final int SATISFYING_SALARY = 20_000;
     private int employeeLimit;
 
     FixedEmployeeNumberManager(String name, double salary) {
@@ -9,11 +10,7 @@ public class FixedEmployeeNumberManager extends Manager {
 
     @Override
     public boolean isSatisfied() {
-        if (this.getSalary() > 20_000 && this.getEmployeeLimit() == this.currentEmployeeNumber()) {
-            return true;
-        } else {
-            return false;
-        }
+        return getSalary() > SATISFYING_SALARY && getEmployeeLimit() == currentEmployeeNumber();
     }
 
     @Override
@@ -28,7 +25,7 @@ public class FixedEmployeeNumberManager extends Manager {
 
     }
 
-    public int currentEmployeeNumber() {
+    private int currentEmployeeNumber() {
         return this.getMyStaffList().size();
     }
 

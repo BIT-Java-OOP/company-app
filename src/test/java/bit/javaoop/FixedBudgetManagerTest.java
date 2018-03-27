@@ -1,47 +1,59 @@
 package bit.javaoop;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FixedBudgetManagerTest {
 
     @Test
-    void isSatisfied_successfully() {
+    void shouldBeSatisfiedWithHighSalaryAndLittleBudgetLeft(){
+        // given
         FixedBudgetManager happy_manager = new FixedBudgetManager("Jan", 300_000);
         happy_manager.setFixedBudget(14_000);
         Employee employee = new Employee("Zbyszek", 10_000);
         happy_manager.hireNewEmployee(employee);
+        // when
         boolean test_result = happy_manager.isSatisfied();
+        // then
         assertTrue(test_result);
     }
 
     @Test
-    void isSatisfied_fail() {
+    void shouldNotBeSatisfiedWithLowSalaryAndMuchBudgetLeft() {
+        // given
         FixedBudgetManager sad_manager = new FixedBudgetManager("Jan", 3_000);
         sad_manager.setFixedBudget(100_000);
         Employee employee = new Employee("Zbyszek", 10_000);
         sad_manager.hireNewEmployee(employee);
+        // when
         boolean test_result = sad_manager.isSatisfied();
+        // then
         assertFalse(test_result);
     }
 
     @Test
-    void hireNewEmployee_successfully() {
+    void succeedInHiringNewEmployee() {
+        // given
         FixedBudgetManager manager = new FixedBudgetManager("Jan", 3_000);
         manager.setFixedBudget(100_000);
         Employee employee = new Employee("Zbyszek", 1_000);
-        manager.hireNewEmployee(employee);
-        assertTrue(manager.hireNewEmployee(employee));
+        // when
+        boolean test_result =manager.hireNewEmployee(employee);
+        // then
+        assertTrue(test_result);
     }
 
     @Test
-    void hireNewEmployee_fail() {
+    void failedToHireNewEmployee() {
+        // given
         FixedBudgetManager manager = new FixedBudgetManager("Jan", 3_000);
         manager.setFixedBudget(10);
         Employee employee = new Employee("Zbyszek", 100_000);
-        manager.hireNewEmployee(employee);
-        assertFalse(manager.hireNewEmployee(employee));
+        // when
+        boolean test_result =manager.hireNewEmployee(employee);
+        // then
+        assertFalse(test_result);
     }
 }

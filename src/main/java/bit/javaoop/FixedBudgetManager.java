@@ -2,6 +2,8 @@ package bit.javaoop;
 
 public class FixedBudgetManager extends Manager {
 
+    private static final int SATISFYING_SALARY = 20_000;
+    private static final int SPARE_BUDGET_LIMIT = 15_000;
     private double fixedBudget;
 
     public FixedBudgetManager(String name, double salary) {
@@ -9,16 +11,13 @@ public class FixedBudgetManager extends Manager {
     }
 
     public boolean isSatisfied() {
-        if (this.getSalary() > 20_000 && (this.currentBudget() < 15_000)) {
-            return true;
-        }
-        return false;
+        return getSalary() > SATISFYING_SALARY && (currentBudget() < SPARE_BUDGET_LIMIT);
     }
 
     @Override
     public boolean hireNewEmployee(Employee employee) {
-        if ((this.currentStuffSalary() + employee.getSalary()) <= this.getFixedBudget()) {
-            this.getMyStaffList().add(employee);
+        if ((currentStuffSalary() + employee.getSalary()) <= getFixedBudget()) {
+            getMyStaffList().add(employee);
             return true;
         } else {
             System.out.println("You don't have enought money to hire new employee.");
@@ -26,20 +25,20 @@ public class FixedBudgetManager extends Manager {
         }
     }
 
-    public double currentStuffSalary() {
+    private double currentStuffSalary() {
         double sum = 0;
-        for (Employee employee : this.getMyStaffList()) {
+        for (Employee employee : getMyStaffList()) {
             sum += employee.getSalary();
         }
         return sum;
     }
 
-    public double currentBudget() {
-        return (this.getFixedBudget() - this.currentStuffSalary());
+    private double currentBudget() {
+        return (getFixedBudget() - currentStuffSalary());
 
     }
 
-    public double getFixedBudget() {
+    private double getFixedBudget() {
         return fixedBudget;
     }
 

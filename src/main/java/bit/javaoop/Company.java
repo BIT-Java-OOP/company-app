@@ -1,8 +1,8 @@
 package bit.javaoop;
 
 public class Company {
-    String name;
-    CEO ceo;
+    private String name;
+    private CEO ceo;
 
     public Company(String name, CEO ceo) {
         this.name = name;
@@ -11,18 +11,18 @@ public class Company {
 
 
     public String getCeo() {
-        return ceo.name;
+        return ceo.getName();
     }
 
     @Override
     public String toString() {
-        String result = this.getCeo() + " - CEO\n";
-        for (Manager manager : ceo.managerList) {
-            result += "\t" + manager.getName() + " - Manager\n";
+        StringBuilder result = new StringBuilder(this.getCeo() + " - CEO\n");
+        for (Manager manager : ceo.getManagerList()) {
+            result.append("\t").append(manager.getName()).append(" - Manager\n");
             for (AbstractEmployee employee : manager.getMyStaffList()) {
-                result += "\t\t" + employee.getName() + " - Employee\n";
+                result.append("\t\t").append(employee.getName()).append(" - Employee\n");
             }
         }
-        return result;
+        return result.toString();
     }
 }
