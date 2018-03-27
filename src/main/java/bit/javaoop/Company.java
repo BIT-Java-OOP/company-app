@@ -7,12 +7,12 @@ public class Company {
     private String CEOname;
     private double CEOsalary;
     List<Manager> managersList;
-
-    public createCompany (String companyName, String CeoName, double ceoSalary) {
+    public void createCompany (String companyName, String CeoName, double ceoSalary) {
 
         public Company(String CEOname, double CEOsalary) {
             this.CEOname = CEOname;
             this.CEOsalary = CEOsalary;
+
         }
     }
     public String toString(){
@@ -35,11 +35,11 @@ public class Company {
         this.managersList = addManager(Manager manager);
     }
 
-    public void setCompanyName(String companyName) {
+    public String setCompanyName(String companyName) {
         this.companyName = companyName;
     }
 
-    public void setCEOname(String CEOname) {
+    public String setCEOname(String CEOname) {
         this.CEOname = CEOname;
     }
 

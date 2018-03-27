@@ -18,7 +18,7 @@ public class BudgetManager extends Manager {
 
     @Override
     public boolean isSatisfied() {
-        return getSalary() > 20_000; and budgetLeft; < 15_000;
+        return getSalary() > 20_000 && budgetLeft < 15_000;
     }
 
 
