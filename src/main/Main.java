@@ -9,11 +9,8 @@ public class Main {
         if(manager.canHire()){
             manager.hire( employee);
         }
-
         c.addManager(manager);
         c.addEmployee(manager, new Employee("Wojtek", 1500.0));
-
-
         Manager m2 = new FixedEmployeeNumberManager("Mateusz", 40000.0);
         c.addManager(m2);
         c.addEmployee(m2, new Employee("Bartek", 3000.0));
