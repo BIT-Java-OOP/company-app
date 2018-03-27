@@ -1,7 +1,6 @@
-package bit.javaoop;
+package bit.javaoop.people;
 
 public class Employee extends AbstractEmployee {
-
 
     public Employee(String name, double salary) {
         super(name, salary);
