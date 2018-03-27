@@ -1,4 +1,4 @@
-package bit.javaoop;
+
 
 public abstract class AbstractEmployee {
     private String name;
@@ -8,8 +8,6 @@ public abstract class AbstractEmployee {
         this.name = name;
         this.salary = salary;
     }
-
-    public abstract boolean isSatisfied();
 
     public String getName() {
         return name;
@@ -25,5 +23,10 @@ public abstract class AbstractEmployee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + "  "+this.salary;
     }
 }
