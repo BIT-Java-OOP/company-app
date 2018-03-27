@@ -14,13 +14,15 @@ public class FixedEmployeeNumberManager extends AbstractManager {
 
     @Override
     public boolean isSatisfied() {
-        return (getSalary() > 20_000) && (hiringAbility == 0);
+        return (getSalary() > 20_000) && (hiringAbility == employeesList.size());
     }
 
+    @Override
     public boolean canHire() {
         return (hiringAbility > employeesList.size());
     }
 
+    @Override
     public void hire(AbstractEmployee employee) {
         if (canHire()) {
             employeesList.add(employee);

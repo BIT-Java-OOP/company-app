@@ -14,7 +14,7 @@ public class Company {
         String result = new String();
         result += ceo.getName() + " - CEO\n";
         for (AbstractEmployee employee : ceo.getEmployees()) {
-            result += employee.toStr(1);
+            result += employee.toString(1);
         }
         return result;
     }

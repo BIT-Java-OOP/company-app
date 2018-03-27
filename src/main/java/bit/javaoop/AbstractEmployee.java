@@ -27,5 +27,6 @@ public abstract class AbstractEmployee {
         this.salary = salary;
     }
 
-    abstract public String toStr(int line);
+    abstract public String toString(int line);
+
 }
