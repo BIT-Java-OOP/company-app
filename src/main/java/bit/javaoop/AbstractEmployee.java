@@ -11,6 +11,8 @@ public abstract class AbstractEmployee {
 
     public abstract boolean isSatisfied();
 
+    public abstract String toString();
+
     public String getName() {
         return name;
     }
