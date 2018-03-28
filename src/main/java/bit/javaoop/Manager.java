@@ -23,13 +23,7 @@ public abstract class Manager extends AbstractEmployee {
         return getName()+" - Manager";
     }
 
-    @Override
     public List<Employee> getEmployees() {
         return employees;
     }
-
-//    @Override
-//    public void setEmployees(List<Employee> employees) {
-//        this.employees = employees;
-//    }
 }

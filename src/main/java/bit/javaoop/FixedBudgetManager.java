@@ -18,15 +18,13 @@ public class FixedBudgetManager extends Manager {
 
     @Override
     public boolean isSatisfied() {
-
         return (getSalary() > MIN_OK_SALARY) && (getBudget() < MAX_OK_BUDGET);
     }
 
     @Override
     public boolean canHireEmployee(Employee newEmployee) {
         double sum = newEmployee.getSalary();
-        for (Employee temp : getEmployees()
-                ) {
+        for (Employee temp : getEmployees()) {
             sum += temp.getSalary();
         }
         return sum <= getBudget();

@@ -5,7 +5,8 @@ import java.util.List;
 
 public class CEO {
 
-    private String name;
+
+    final private String name;
     private List<Manager> managersList;
 
     CEO(String name, List<Manager> managersList) {
@@ -17,10 +18,12 @@ public class CEO {
         this(name, new ArrayList<>());
     }
 
-    CEO() {
-        this("", new ArrayList<>());
-    }
-
+    /**
+     * hire new ceo , make new ceo's managers list based on old ceo's list
+     *
+     * @param name
+     * @param oldCeo
+     */
     CEO(String name, CEO oldCeo) {
         this(name, oldCeo.getManagersList());
     }
@@ -31,15 +34,11 @@ public class CEO {
 
     @Override
     public String toString() {
-        return getName()+" - CEO";
+        return getName() + " - CEO";
     }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public List<Manager> getManagersList() {

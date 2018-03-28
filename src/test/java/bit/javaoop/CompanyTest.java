@@ -30,7 +30,8 @@ class CompanyTest {
     @Test
     void shouldDoToString() {
         //given
-        Company company = new Company("CCC");
+        CEO oldCeo = new CEO("Zuza");
+        Company company = new Company("CCC",oldCeo);
         company.hireNewCeo(new CEO("Adam"));
         FixedBudgetManager budgetMangerOne = new FixedBudgetManager("Adam_budget ", 3000, 900);
         FixedBudgetManager budgetMangerTwo = new FixedBudgetManager("Ela_budget ", 30800, 77900);

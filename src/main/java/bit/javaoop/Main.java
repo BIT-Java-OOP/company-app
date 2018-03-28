@@ -3,7 +3,8 @@ package bit.javaoop;
 public class Main {
     public static void main(String[] args) {
 
-        Company company = new Company("CCC");
+        CEO oldCeo = new CEO("Zuza");
+        Company company = new Company("CCC",oldCeo);
         company.hireNewCeo(new CEO("Adam"));
         FixedBudgetManager fbm1 = new FixedBudgetManager("Adam_budget ", 3000, 900);
         company.getCeo().hireManager(fbm1);
