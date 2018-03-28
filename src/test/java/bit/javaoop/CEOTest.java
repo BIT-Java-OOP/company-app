@@ -1,14 +1,23 @@
 package bit.javaoop;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 class CEOTest {
+
+    private CEO ceo;
+
+    @BeforeEach
+    void setUp() {
+        ceo = new CEO("Adam");
+    }
+
     @Test
     void shouldHireManagerIfPossible() {
         //given
-        CEO ceo = new CEO("Adam");
         Manager manager = new FixedEmployeeNumberManager("One", 1200, 12);
         //when
         ceo.hireManager(manager);
@@ -23,7 +32,6 @@ class CEOTest {
     @Test
     void shouldDoToString() {
         //given
-        CEO ceo = new CEO("Adam");
         //then
         assertEquals(ceo.getName() + " - CEO", ceo.toString());
         //when

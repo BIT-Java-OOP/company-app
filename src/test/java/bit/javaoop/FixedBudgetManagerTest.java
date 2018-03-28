@@ -1,14 +1,23 @@
 package bit.javaoop;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class FixedBudgetManagerTest {
+    private FixedBudgetManager manager;
+
+    @BeforeEach
+    void setUp() {
+        manager = new FixedBudgetManager("A", 200000.4, 10.1);
+
+    }
+
     @Test
     void shouldTellIfIsSatisfied() {
         //given
-        FixedBudgetManager manager = new FixedBudgetManager("A", 200000.4, 10.1);
+
         //then
         assertTrue(manager.isSatisfied());
         //when
@@ -25,10 +34,10 @@ class FixedBudgetManagerTest {
     @Test
     void shuldCheckIfCanHireEmployee() {
         //given
-        FixedBudgetManager manager = new FixedBudgetManager("A",200000.4,10.1);
+
         //then
-        assertFalse(manager.canHireEmployee(new Employee("E",12)));
-        assertTrue(manager.canHireEmployee(new Employee("E2",2)));
+        assertFalse(manager.canHireEmployee(new Employee("E", 12)));
+        assertTrue(manager.canHireEmployee(new Employee("E2", 2)));
 
     }
 
