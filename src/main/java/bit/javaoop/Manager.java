@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Manager extends AbstractEmployee {
 
-    private List<Employee> employees = new ArrayList<Employee>();
+    private List<Employee> employees = new ArrayList<>();
 
     public Manager(String name, double salary) {
         super(name, salary);
@@ -13,19 +13,14 @@ public abstract class Manager extends AbstractEmployee {
 
     public abstract boolean canHireEmployee(Employee newEmployee);
 
-    void hireEmployee(Employee newEmployee) {
+    void hireEmployeeIfPossible(Employee newEmployee) {
         if (canHireEmployee(newEmployee))
             getEmployees().add(newEmployee);
     }
 
     @Override
     public String toString() {
-        StringBuilder manger = new StringBuilder("\t\t" + getName() + " - Manager\n");
-        for (Employee temp : getEmployees()
-                ) {
-            manger.append(temp.toString());
-        }
-        return manger.toString();
+        return getName()+" - Manager";
     }
 
     @Override
@@ -33,8 +28,8 @@ public abstract class Manager extends AbstractEmployee {
         return employees;
     }
 
-    @Override
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
+//    @Override
+//    public void setEmployees(List<Employee> employees) {
+//        this.employees = employees;
+//    }
 }

@@ -13,10 +13,10 @@ public class Main {
         company.getCeo().hireManager(fenm1);
 
         AbstractEmployee employee = new Employee("Garek Majęcki", 25000);
-        fenm1.hireEmployee((Employee) employee);
-        fenm1.hireEmployee(new Employee("Jan", 12));
-        fbm1.hireEmployee(new Employee("Sara", 123123));
-        fbm2.hireEmployee(new Employee("Alan", 11122));
+        fenm1.hireEmployeeIfPossible((Employee) employee);
+        fenm1.hireEmployeeIfPossible(new Employee("Jan", 12));
+        fbm1.hireEmployeeIfPossible(new Employee("Sara", 123123));
+        fbm2.hireEmployeeIfPossible(new Employee("Alan", 11122));
 
 
         System.out.println(company.toString());

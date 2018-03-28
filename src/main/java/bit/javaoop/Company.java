@@ -1,7 +1,7 @@
 package bit.javaoop;
-
-import java.util.ArrayList;
-import java.util.List;
+//
+//import java.util.ArrayList;
+//import java.util.List;
 
 public class Company {
 
@@ -24,14 +24,23 @@ public class Company {
         setCeo(newCeo);
     }
 
-    public List<Manager> getManagerList() {
-        return getCeo().getManagersList();
-    }
+//    public List<Manager> getManagerList() {
+//        return getCeo().getManagersList();
+//    }
 
     @Override
     public String toString() {
-        String company = getName() + "\n";
-        company += getCeo().toString();
+        StringBuilder company = new StringBuilder();
+        company.append(getName() + "\n");
+        company.append("\t" + getCeo().toString() + "\n");
+        for (Manager manager : ceo.getManagersList()) {
+            company.append("\t\t" + manager.toString() + "\n");
+            for (Employee employee : manager.getEmployees()
+                    ) {
+                company.append("\t\t\t" + employee.toString() + "\n");
+            }
+
+        }
         return company.toString();
     }
 
@@ -40,9 +49,9 @@ public class Company {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     public CEO getCeo() {
         return ceo;

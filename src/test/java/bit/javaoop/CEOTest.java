@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CEOTest {
     @Test
-    void hireManager() {
+    void shouldHireManagerIfPossible() {
         CEO ceo = new CEO("Adam");
         Manager manager = new FixedEmployeeNumberManager("One", 1200, 12);
         ceo.hireManager(manager);
@@ -20,13 +20,9 @@ class CEOTest {
     @Test
     void tostring() {
         CEO ceo = new CEO("Adam");
-        assertEquals("\t" + ceo.getName() + " - CEO\n", ceo.toString());
+        assertEquals(ceo.getName() + " - CEO", ceo.toString());
         Manager manager = new FixedEmployeeNumberManager("One", 1200, 12);
         ceo.hireManager(manager);
-        ceo.hireManager(new FixedBudgetManager("Two", 10, 100));
-
-        assertEquals("\t" + ceo.getName() + " - CEO\n\t\tOne - Manager\n\t\tTwo - Manager\n", ceo.toString());
-
     }
 
 }

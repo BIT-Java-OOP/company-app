@@ -14,11 +14,11 @@ public class CEO {
     }
 
     CEO(String name) {
-        this(name, new ArrayList<Manager>());
+        this(name, new ArrayList<>());
     }
 
     CEO() {
-        this(null, new ArrayList<Manager>());
+        this("", new ArrayList<>());
     }
 
     CEO(String name, CEO oldCeo) {
@@ -31,12 +31,7 @@ public class CEO {
 
     @Override
     public String toString() {
-        StringBuilder ceo = new StringBuilder("\t" + getName() + " - CEO\n");
-        for (Manager temp : getManagersList()
-                ) {
-            ceo.append(temp.toString());
-        }
-        return ceo.toString();
+        return getName()+" - CEO";
     }
 
     public String getName() {

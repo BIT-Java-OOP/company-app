@@ -6,8 +6,8 @@ import java.util.List;
 public abstract class AbstractEmployee {
     private String name;
     private double salary;
-    private List<Employee> employees = new ArrayList<Employee>();
-    private List<Manager> managers = new ArrayList<Manager>();
+    private List<Employee> employees = new ArrayList<>();
+    //private List<Manager> managers = new ArrayList<>();
 
     public AbstractEmployee(String name, double salary) {
         this.name = name;
@@ -18,10 +18,6 @@ public abstract class AbstractEmployee {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public double getSalary() {
@@ -35,25 +31,11 @@ public abstract class AbstractEmployee {
 
     @Override
     public String toString() {
-        String employee = new String();
-        employee = "\t\t\t" + getName() + " - Employee\n";
-        return employee;
+        return getName()+" - Employee";
     }
 
     public List<Employee> getEmployees() {
         return employees;
-    }
-
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
-
-    public List<Manager> getManagers() {
-        return managers;
-    }
-
-    public void setManagers(List<Manager> managers) {
-        this.managers = managers;
     }
 
 }
