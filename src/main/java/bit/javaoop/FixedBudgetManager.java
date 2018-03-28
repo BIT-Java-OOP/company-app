@@ -2,6 +2,9 @@ package bit.javaoop;
 
 public class FixedBudgetManager extends Manager {
 
+    public static final int BUDGET_INIT = 20000;
+    public static final int MIN_OK_SALARY = 20000;
+    public static final int MAX_OK_BUDGET = 15000;
     private double budget;
 
     FixedBudgetManager(String name, double salary, double budget) {
@@ -10,13 +13,13 @@ public class FixedBudgetManager extends Manager {
     }
 
     public FixedBudgetManager(String name, double salary) {
-        this(name, salary, 20000);
+        this(name, salary, BUDGET_INIT);
     }
 
     @Override
     public boolean isSatisfied() {
 
-        return getSalary() > 20000 && getBudget() < 15000;
+        return (getSalary() > MIN_OK_SALARY) && (getBudget() < MAX_OK_BUDGET);
     }
 
     @Override

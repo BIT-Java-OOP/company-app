@@ -6,18 +6,32 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ManagerTest {
     @Test
-    void hireEmployee() {
+    void shuldHireEmployeeIfPossible() {
+
+        //given
         Manager man = new FixedBudgetManager("Jan", 12, 12);
+
+        String nameTwo = "Janina";
+        Employee employeeTwo = new Employee(nameTwo, 12);
+
+        //then
         assertEquals(0, man.getEmployees().size());
-        man.hireEmployeeIfPossible(new Employee("Janina", 12));
+
+        //when
+        man.hireEmployeeIfPossible(employeeTwo);
+
+        //then
         assertEquals(1, man.getEmployees().size());
-        assertEquals("Janina", man.getEmployees().get(0).getName());
+        assertEquals(nameTwo, man.getEmployees().get(0).getName());
 
     }
 
     @Test
-    void tostring() {
+    void shouldDoToString() {
+        //given       / when
         Manager man = new FixedBudgetManager("Jan", 12, 12);
+
+        //then
         assertEquals( man.getName() + " - Manager", man.toString());
 
     }
