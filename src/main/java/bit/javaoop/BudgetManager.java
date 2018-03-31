@@ -14,6 +14,7 @@ public class BudgetManager extends Manager {
         return (this.getSalary() > 20_000 && this.budget - this.getSumOfEmployeesSalaries() < 15_000);
     }
 
+    @Override
     public boolean canHire(Employee employee) {
         return (this.getSumOfEmployeesSalaries() + employee.getSalary() <= budget);
     }

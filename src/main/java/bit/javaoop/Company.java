@@ -15,17 +15,21 @@ public class Company {
     }
 
     public String toString() {
-        String companyText = "";
+        StringBuilder companyText = new StringBuilder();
 
-        companyText += ceoEmployee.getName() + " - CEO\n";
+        companyText.append(ceoEmployee.getName() + " - CEO\n");
 
         for(Manager manager : ceoEmployee.getManagers()) {
-            companyText += "    " + manager.getName() + " - Manager\n";
+            companyText.append("    " + manager.getName() + " - Manager\n");
             for(Employee employee : manager.getEmployees()) {
-                companyText += "        " + employee.getName() + " - Employee\n";
+                companyText.append("        " + employee.getName() + " - Employee\n");
             }
         }
 
-        return companyText;
+        return companyText.toString();
+    }
+
+    public String getName() {
+        return name;
     }
 }

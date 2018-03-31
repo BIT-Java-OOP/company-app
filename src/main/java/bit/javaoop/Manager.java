@@ -3,7 +3,7 @@ package bit.javaoop;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Manager extends Employee {
+public abstract class Manager extends Employee {
 
     private List<Employee> employees;
 
@@ -19,6 +19,8 @@ public class Manager extends Employee {
     public void hire(Employee employee) {
         employees.add(employee);
     }
+
+    public abstract boolean canHire(Employee employee);
 
     public double getSumOfEmployeesSalaries() {
         double sum = 0;

@@ -7,23 +7,30 @@ import static org.junit.jupiter.api.Assertions.*;
 class EmployeeNumberManagerTest {
 
     @Test
-    void isSatisfied() {
-        EmployeeNumberManager satisfiedManager = new EmployeeNumberManager("Marek", 25_000, 0);
-        EmployeeNumberManager emptySpotManager = new EmployeeNumberManager("Darek", 25_000, 1);
-        EmployeeNumberManager lowSalaryManager = new EmployeeNumberManager("Jarek", 20_000, 0);
-
+    void shouldBeSatisfied() {
+        Manager satisfiedManager = new EmployeeNumberManager("Marek", 25_000, 0);
         assertTrue(satisfiedManager.isSatisfied());
+    }
+
+    @Test
+    void shouldBeNotSatisfied() {
+        Manager emptySpotManager = new EmployeeNumberManager("Darek", 25_000, 1);
+        Manager lowSalaryManager = new EmployeeNumberManager("Jarek", 20_000, 0);
         assertFalse(emptySpotManager.isSatisfied());
         assertFalse(lowSalaryManager.isSatisfied());
     }
 
     @Test
-    void canHire() {
-        EmployeeNumberManager noSpotsManager = new EmployeeNumberManager("Marek", 25_000, 0);
-        EmployeeNumberManager freeSpotManager = new EmployeeNumberManager("Darek", 25_000, 1);
+    void shouldHire() {
+        Manager freeSpotManager = new EmployeeNumberManager("Darek", 25_000, 1);
         Employee employee = new Employee("Jarek", 10_000);
-
-        assertFalse(noSpotsManager.canHire(employee));
         assertTrue(freeSpotManager.canHire(employee));
+    }
+
+    @Test
+    void shouldNotHire() {
+        Manager noSpotsManager = new EmployeeNumberManager("Marek", 25_000, 0);
+        Employee employee = new Employee("Jarek", 10_000);
+        assertFalse(noSpotsManager.canHire(employee));
     }
 }

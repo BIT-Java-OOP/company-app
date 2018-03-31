@@ -2,6 +2,7 @@ package bit.javaoop;
 
 public class Main {
     public static void main(String[] args) {
+
         CEO ceo = new CEO("Zbyszek", 50_000);
         Manager budgetManager = new BudgetManager("Maciek", 30_000, 30_000);
         Manager employeeNumberManager = new EmployeeNumberManager("Krzysiek", 18_000, 2);
