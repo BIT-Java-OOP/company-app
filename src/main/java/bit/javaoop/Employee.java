@@ -1,14 +1,28 @@
 package bit.javaoop;
 
-public class Employee extends AbstractEmployee {
+public class Employee {
 
+    private String name;
+    private double salary;
 
     public Employee(String name, double salary) {
-        super(name, salary);
+        this.name = name;
+        this.salary = salary;
     }
 
-    @Override
+    public String getName() {
+        return name;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
     public boolean isSatisfied() {
-        return getSalary() > 10_000;
+        return this.salary > 10_000;
     }
 }
