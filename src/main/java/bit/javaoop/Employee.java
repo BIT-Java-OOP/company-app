@@ -1,25 +1,16 @@
 package bit.javaoop;
 
-public class Employee extends AbstractEmployee{
-    private final String position = "employee";
+public class Employee extends AbstractEmployee implements Inferior{
     public Employee(String name, Float salary)
     {
         super(name, salary);
     }
 
-    @Override
+
     public boolean isSatisfied() {
-        return true;
+        Float satisfiedSalary = 5_000f;
+        return getSalary()>satisfiedSalary;
     }
 
-    @Override
-    public String getPosition() {
-        return position;
-    }
 
-    @Override
-    public void addEmployee(AbstractEmployee employee) {
-        return;
-
-    }
 }

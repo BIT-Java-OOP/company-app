@@ -1,30 +1,49 @@
 package bit.javaoop;
 
-public class FixedBudgetManager extends AbstractManager {
-    private final String position ="manager";
+import java.util.ArrayList;
+import java.util.List;
 
-    @Override
-    public String getPosition() {
-        return position;
-    }
+public class FixedBudgetManager extends AbstractEmployee implements Superior, Inferior,SalaryCalculator {
+    private Float budget = 100_000f;
+    private List<Inferior> inferiorList = new ArrayList<>();
 
     public FixedBudgetManager(String name, Float salary)
     {
         super(name,salary);
 
-        getEmployeeList().add(this);
     }
 
     @Override
-    public boolean canHire() {
-        return getBudget()>getSalaries();
+    public List<Inferior> getInferiors()
+    {
+        return inferiorList;
     }
 
     @Override
-    public void addEmployee(AbstractEmployee employee) {
-        if(canHire() && !getEmployeeList().contains(employee))
+    public Float getActualSalary()
+    {
+        return getSalary();
+    }
+
+    private Float getSumOfSalaries() {
+        Float sumOfSalaries=0f;
+        for(Inferior e: inferiorList)
         {
-            super.addEmployee(employee);
+            sumOfSalaries+=e.getSalary();
+        }
+        return sumOfSalaries;
+    }
+
+
+    private boolean canHire() {
+        return budget>getSumOfSalaries();
+    }
+
+    @Override
+    public void addEmployee(Inferior employee) {
+        if(canHire() && !inferiorList.contains(employee))
+        {
+            inferiorList.add(employee);
         }
         else
         {
@@ -34,8 +53,9 @@ public class FixedBudgetManager extends AbstractManager {
 
     public boolean isSatisfied()
     {
-        Float budget = getBudget();
-        Float salaries = getSalaries();
-        return budget-salaries>15_000 && getSalary() > 20_000;
+        Float satisfiedSalary = 20_000f;
+        Float satisfiedBudget = 15_000f;
+        Float salaries = getSumOfSalaries();
+        return budget-salaries>satisfiedBudget && getSalary() > satisfiedSalary;
     }
 }
