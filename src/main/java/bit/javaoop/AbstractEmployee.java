@@ -1,12 +1,11 @@
 package bit.javaoop;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class AbstractEmployee {
-     private String name;
+    private String name;
     private Float salary;
-    private static List <AbstractEmployee> EmployeeList = new ArrayList<>();
+    private String employmentPolicy;
+    private SalaryCalculator salaryCalculator;
 
 
     public AbstractEmployee(String name, Float salary)
@@ -15,8 +14,18 @@ public abstract class AbstractEmployee {
         this.salary=salary;
     }
 
-    public AbstractEmployee()
-    {}
+    public AbstractEmployee(String name)
+    {
+        this.name=name;
+    }
+
+    public String getEmploymentPolicy() {
+        return employmentPolicy;
+    }
+
+    public void setEmploymentPolicy(String employmentPolicy) {
+        this.employmentPolicy = employmentPolicy;
+    }
 
     public Float getSalary() {
         return salary;
@@ -26,14 +35,7 @@ public abstract class AbstractEmployee {
         return name;
     }
 
-
-    abstract public boolean isSatisfied();
-    abstract public void addEmployee(AbstractEmployee employee);
-    abstract public String getPosition();
-
-    public static List<AbstractEmployee> getEmployeeList() {
-        return EmployeeList;
-    }
+    abstract boolean isSatisfied();
 
 
 }

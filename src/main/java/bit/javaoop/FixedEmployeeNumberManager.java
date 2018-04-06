@@ -1,39 +1,61 @@
 package bit.javaoop;
 
-public class FixedEmployeeNumberManager extends AbstractManager {
-    private final String position ="manager";
-    Integer limitEmployees = 10;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FixedEmployeeNumberManager extends AbstractEmployee implements Superior, Inferior,SalaryCalculator {
+    private Integer limitEmployees = 10;
+    private List<Inferior> inferiorList = new ArrayList<>();
+
     public FixedEmployeeNumberManager(String name, Float salary)
     {
         super(name,salary);
-        getEmployeeList().add(this);
     }
 
     @Override
-    public String getPosition() {
-        return position;
+    public List<Inferior> getInferiors()
+    {
+        return inferiorList;
     }
 
     @Override
-    public boolean canHire() {
+    public Float getActualSalary()
+    {
+        return getSalary();
+    }
+
+    private Integer getAmountOfEmployees()
+    {
+        Integer count=0;
+        for(Inferior e: inferiorList)
+        {
+            count++;
+        }
+        return count;
+    }
+
+
+    private boolean canHire() {
         return limitEmployees > getAmountOfEmployees();
     }
 
-    public void addEmployee(AbstractEmployee employee)
+    @Override
+    public void addEmployee(Inferior employee)
     {
-        if(canHire() && !getEmployeeList().contains(employee))
+        if(canHire() && !inferiorList.contains(employee))
         {
-            super.addEmployee(employee);
+            inferiorList.add(employee);
         }
         else
         {
-            System.out.printf("Cannot hire a new employee");
+            System.out.println("Cannot hire a new employee");
         }
     }
 
     public boolean isSatisfied()
     {
-        return getSalary()>20_000f && limitEmployees-getAmountOfEmployees()>0;
+        Float satisfiedSalary = 20_000f;
+        return getSalary()>satisfiedSalary && limitEmployees-getAmountOfEmployees()>0;
     }
 
 }

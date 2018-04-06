@@ -1,30 +1,30 @@
 package bit.javaoop;
 
+import java.util.ArrayList;
+import java.util.List;
 
-public class CEO extends AbstractEmployee{
-    private final String position="ceo";
+public class CEO extends AbstractEmployee implements Superior{
     private String name;
+    private List<Inferior> inferiorList;
 
-    @Override
-    public String getPosition() {
-        return position;
-    }
 
-    private static CEO ceo;
-    private CEO(){}
-    public static CEO getInstance()
+    public CEO(String name)
     {
-        if(ceo==null){
-            ceo= new CEO();
-        }
-        return ceo;
+        super(name);
+        inferiorList = new ArrayList<>();
     }
+
 
     public String getName() {
         return name;
     }
 
+
     @Override
+    public List<Inferior> getInferiors() {
+        return inferiorList;
+    }
+
     public boolean isSatisfied() {
         return true;
     }
@@ -34,10 +34,12 @@ public class CEO extends AbstractEmployee{
         this.name=name;
     }
 
-
-    public void addEmployee(AbstractEmployee employee)
+    @Override
+    public void addEmployee(Inferior employee)
     {
-        getEmployeeList().add(employee);
+        if(!inferiorList.contains(employee))
+            inferiorList.add(employee);
+        else System.out.println("Cannot hire a new employee");
     }
 
 }
