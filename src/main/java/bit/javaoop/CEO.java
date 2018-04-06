@@ -35,7 +35,7 @@ public class CEO extends AbstractEmployee implements Superior{
     }
 
     @Override
-    public void addEmployee(Inferior employee)
+    public void shouldAddEmployee(Inferior employee)
     {
         if(!inferiorList.contains(employee))
             inferiorList.add(employee);

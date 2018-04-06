@@ -35,13 +35,13 @@ public class FixedBudgetManager extends AbstractEmployee implements Superior, In
     }
 
 
-    private boolean canHire() {
+    private boolean shouldCanHire() {
         return budget>getSumOfSalaries();
     }
 
     @Override
-    public void addEmployee(Inferior employee) {
-        if(canHire() && !inferiorList.contains(employee))
+    public void shouldAddEmployee(Inferior employee) {
+        if(shouldCanHire() && !inferiorList.contains(employee))
         {
             inferiorList.add(employee);
         }

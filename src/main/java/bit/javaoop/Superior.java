@@ -5,7 +5,7 @@ import java.util.List;
 public interface Superior {
     List<Inferior> getInferiors();
 
-    void addEmployee(Inferior employee);
+    void shouldAddEmployee(Inferior employee);
 
     default void mergeInferiorList(Superior other)
     {
@@ -26,10 +26,10 @@ public interface Superior {
             {
                 sb.append("\t");
             }
-            sb.append(e.getName());
-            sb.append(" - ");
-            sb.append(e.getClass().getSimpleName());
-            sb.append("\n");
+            sb.append(e.getName())
+            .append(" - ")
+            .append(e.getClass().getSimpleName())
+            .append("\n");
 
             if (e instanceof Superior)
             {

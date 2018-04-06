@@ -35,14 +35,14 @@ public class FixedEmployeeNumberManager extends AbstractEmployee implements Supe
     }
 
 
-    private boolean canHire() {
+    private boolean shouldCanHire() {
         return limitEmployees > getAmountOfEmployees();
     }
 
     @Override
-    public void addEmployee(Inferior employee)
+    public void shouldAddEmployee(Inferior employee)
     {
-        if(canHire() && !inferiorList.contains(employee))
+        if(shouldCanHire() && !inferiorList.contains(employee))
         {
             inferiorList.add(employee);
         }

@@ -19,7 +19,7 @@ public class Company {
         this.companyName = companyName;
     }
 
-    public void hireCEO(CEO newCeo)
+    public void shouldHireCEO(CEO newCeo)
     {
         newCeo.mergeInferiorList(ceo);
         ceo=newCeo;

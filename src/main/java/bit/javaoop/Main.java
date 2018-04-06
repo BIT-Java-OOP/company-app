@@ -11,17 +11,18 @@ public class Main {
         Inferior worker3 = new Employee("Zuza",8000f);
 
         FixedBudgetManager manager1 = new FixedBudgetManager("Janina",20_000f);
-        manager1.addEmployee(worker1);
-        manager1.addEmployee(worker2);
-        manager1.addEmployee(worker3);
+        manager1.shouldAddEmployee(worker1);
+        manager1.shouldAddEmployee(worker2);
+        manager1.shouldAddEmployee(worker3);
         CEO ceo = new CEO("Stefan");
-        ceo.addEmployee(manager1);
+        ceo.shouldAddEmployee(manager1);
 
-        company.hireCEO(ceo);
+        company.shouldHireCEO(ceo);
+        ceo.setName("Ola");
         FixedEmployeeNumberManager manager2 = new FixedEmployeeNumberManager("Emil",20_000f);
-        ceo.addEmployee(manager2);
-        manager2.addEmployee(worker1);
-        manager2.addEmployee(worker3);
+        ceo.shouldAddEmployee(manager2);
+        manager2.shouldAddEmployee(worker1);
+        manager2.shouldAddEmployee(worker3);
         System.out.println(company.toString());
         System.out.println(manager1.getActualSalary());
     }
