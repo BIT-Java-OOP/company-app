@@ -1,28 +1,26 @@
-package bit.javaoop;
+package bit.javaoop.managersPackage;
 
-import static com.sun.tools.doclint.Entity.and;
+import bit.javaoop.employeesPackage.Employee;
 
 public class BudgetManager extends Manager {
     private double budget;
-    private double budgetLeft;
+    private double budgetLeft = budget;
 
     public BudgetManager(String name, double salary, double budget) {
         super(name, salary);
         this.budget = budget;
     }
 
+    public double satisfyingSalary = 20_000;
+
     @Override
     public boolean canHireEmployee(Employee employee) {
-        return budgetLeft>=0;
+        return budgetLeft >= 0;
     }
 
-    @Override
     public boolean isSatisfied() {
-        return getSalary() > 20_000 && budgetLeft < 15_000;
+        return getSalary() > satisfyingSalary && budgetLeft < 15_000;
     }
 
-    public void setBudget(double budget) {
-        this.budget = budget;
-    }
 }
 

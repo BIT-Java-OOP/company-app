@@ -1,4 +1,4 @@
-package bit.javaoop;
+package bit.javaoop.employeesPackage;
 
 public class Employee extends AbstractEmployee {
 
@@ -7,8 +7,13 @@ public class Employee extends AbstractEmployee {
         super(name, salary);
     }
 
+
+    public double satisfyingSalary = 10_000;
+
     @Override
     public boolean isSatisfied() {
-        return getSalary() > 10_000;
+        return getSalary() > satisfyingSalary;
     }
+
+
 }

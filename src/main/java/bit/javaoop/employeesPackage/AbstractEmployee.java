@@ -1,8 +1,10 @@
-package bit.javaoop;
+package bit.javaoop.employeesPackage;
 
 public abstract class AbstractEmployee {
     private String name;
     private double salary;
+    public double employeesLimit;
+    public double satisfyingSalary;
 
     public AbstractEmployee(String name, double salary) {
         this.name = name;
@@ -26,4 +28,17 @@ public abstract class AbstractEmployee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
+
+    public void setEmployeesLimit(double employeesLimit) {
+        this.employeesLimit = employeesLimit;
+    }
+
+    public String tellName(Employee employee) {
+        return employee.getName() + " - ";
+    }
+
+    public double tellSalary(Employee employee) {
+        return employee.getSalary();
+    }
+
 }

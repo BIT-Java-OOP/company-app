@@ -1,10 +1,13 @@
 package bit.javaoop;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        AbstractEmployee employee = new Employee("Garek Majęcki", 25_000);
-        BudgetsetBudget(25_000);
-        System.out.println(employee.getName() + " " + employee.getSalary());
+        private String companyName;
+        Scanner input = new Scanner(System.in);
+        String text = input.nextLine();
+        text = setCompanyName<>();
     }
 
 }

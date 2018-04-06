@@ -1,4 +1,4 @@
-package bit.javaoop;
+package bit.javaoop.headquartersPackage;
 
 import com.sun.tools.javac.util.List;
 
@@ -7,27 +7,24 @@ public class Company {
     private String CEOname;
     private double CEOsalary;
     List<Manager> managersList;
-    public void createCompany (String companyName, String CeoName, double ceoSalary) {
+    public static String toString();
 
-     public Company(String companyName, String CEOname, double CEOsalary) {
-            this.companyName = companyName;
-            this.CEOname = CEOname;
-            this.CEOsalary = CEOsalary;
-        }
-    }
-
+    public Company(String companyName, String CEOname, double CEOsalary) {
+        this.companyName = companyName;
+        this.CEOname = CEOname;
+        this.CEOsalary = CEOsalary;}
 
     public void addManager (Manager manager) {
         managersList.add(manager);
-
     }
 
     public void setManagersList(List<Manager> managersList) {
         Object manager;
-        this.managersList = addManager(Manager manager);
+        this.managersList = addManager(manager);
     }
 
-    public String setCompanyName(String companyName) {
+    private String setCompanyName(String companyName) {
+
         this.companyName = companyName;
     }
 
@@ -49,4 +46,4 @@ public class Company {
            // }
        // }
     }
-}
+

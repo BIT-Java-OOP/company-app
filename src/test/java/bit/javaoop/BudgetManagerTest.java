@@ -5,14 +5,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ManagerTest extends Manager {
+class BudgetManagerTest extends Manager {
     @BeforeEach
     void setUp() {
     }
 
     @Test
-    void addEmployee() {
-      
+    void canHireEmployee() {
+    }
+
+    @Test
+    void isSatisfied() {
     }
 
 }
