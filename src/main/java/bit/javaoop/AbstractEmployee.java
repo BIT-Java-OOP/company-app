@@ -29,10 +29,11 @@ public abstract class AbstractEmployee {
 
     public String toString(int line) {
         String result = new String();
+        StringBuilder sB = new StringBuilder(result);
         for (int i = 0; i < line; i += 1)
-            result += '\t';
-        result += '\t';
-        result += getName() + " - Employee\n";
+            sB.append('\t');
+
+        result += sB.toString() + getName() + " - Employee\n";
         return result;
     }
 }

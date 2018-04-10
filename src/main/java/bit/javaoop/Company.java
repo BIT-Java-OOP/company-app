@@ -13,9 +13,11 @@ public class Company {
     public String toString() {
         String result = new String();
         result += ceo.getName() + " - CEO\n";
+        StringBuilder sB = new StringBuilder(result);
         for (AbstractEmployee employee : ceo.getEmployees()) {
-            result += employee.toString(1);
+            sB.append('\t' + employee.toString(1));
         }
+        result = sB.toString();
         return result;
     }
 

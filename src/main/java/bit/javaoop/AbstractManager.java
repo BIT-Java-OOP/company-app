@@ -21,12 +21,12 @@ public abstract class AbstractManager extends AbstractEmployee {
 
     public String toString(int line) {
         String result = new String();
-        for (int i = 0; i < line; i += 1)
-            result += '\t';
         result += getName() + " - Manager\n";
+        StringBuilder sB = new StringBuilder(result);
         for (AbstractEmployee employee : employeesList) {
-            result += employee.toString(line + 1);
+            sB.append(employee.toString(line + 1));
         }
+        result = sB.toString();
         return result;
     }
 
