@@ -27,6 +27,12 @@ public abstract class AbstractEmployee {
         this.salary = salary;
     }
 
-    abstract public String toString(int line);
-
+    public String toString(int line) {
+        String result = new String();
+        for (int i = 0; i < line; i += 1)
+            result += '\t';
+        result += '\t';
+        result += getName() + " - Employee\n";
+        return result;
+    }
 }
