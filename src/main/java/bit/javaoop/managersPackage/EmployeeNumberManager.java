@@ -1,18 +1,16 @@
 package bit.javaoop.managersPackage;
 
-import bit.javaoop.employeesPackage.Employee;
-
 public class EmployeeNumberManager extends Manager {
 
-    public EmployeeNumberManager(String name, double salary) {
-        super(name, salary);
+    public EmployeeNumberManager(String name, double salary, double budget, double employeesLimit) {
+        super(name, salary, budget, employeesLimit);
+        this.satisfyingSalary = 20_000;
     }
 
-    public double satisfyingSalary = 20_000;
 
     @Override
-    public boolean canHireEmployee(Employee employee) {
-        return employeesLimit <= 0;
+    public boolean canHireEmployee() {
+        return employeesLimit > 0;
     }
 
     public boolean isSatisfied() {

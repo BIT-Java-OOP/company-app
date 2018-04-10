@@ -2,29 +2,32 @@ package bit.javaoop.managersPackage;
 
 import bit.javaoop.employeesPackage.AbstractEmployee;
 import bit.javaoop.employeesPackage.Employee;
-import com.sun.tools.javac.util.List;
+
+import java.util.ArrayList;
+
 
 public abstract class Manager extends AbstractEmployee {
-    private double budget;
+    protected double budget;
+    protected double employeesLimit;
     private double budgetLeft = budget;
 
-    public Manager(String name, double salary) {
+    public Manager(String name, double salary, double budget, double employeesLimit) {
         super(name, salary);
+        this.budget = budget;
+        this.employeesLimit = employeesLimit;
     }
 
-    private static List<Employee> employeesList;
-    private static List<Manager> managersList;
+    public static ArrayList<Employee> employeesList;
 
-    public abstract boolean canHireEmployee(Employee employee);
 
-    public void hireEmployee(Employee employee, double budgetLeft, double employeesLimit) {
+    public abstract boolean canHireEmployee();
+
+    public void hireEmployee(Employee employee) {
         employeesList.add(employee);
-        budgetLeft -= setSalary();
+        budgetLeft -= employee.getSalary();
         employeesLimit -= 1;
+        Employee employee2 = new Employee(employee.getName(), employee.getSalary());
     }
 
-    @Override
-    public String tellName(Employee employee) {
-        return employee.getName() + "Manager";
-    }
+
 }

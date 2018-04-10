@@ -1,20 +1,16 @@
 package bit.javaoop.managersPackage;
 
-import bit.javaoop.employeesPackage.Employee;
-
 public class BudgetManager extends Manager {
-    private double budget;
-    private double budgetLeft = budget;
-
-    public BudgetManager(String name, double salary, double budget) {
-        super(name, salary);
-        this.budget = budget;
+    public BudgetManager(String name, double salary, double budget, double employeesLimit) {
+        super(name, salary, budget, employeesLimit);
+        this.satisfyingSalary = 20_000;
     }
 
-    public double satisfyingSalary = 20_000;
+    private double budgetLeft = budget;
+
 
     @Override
-    public boolean canHireEmployee(Employee employee) {
+    public boolean canHireEmployee() {
         return budgetLeft >= 0;
     }
 
