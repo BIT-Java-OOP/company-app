@@ -1,8 +1,8 @@
 package bit.javaoop;
 
-public class FixedBudgetManager extends Manager {
+public class FixedBudgetManager extends AbstractManager {
 
-    private int Budget =100000;
+    private int budget =100000;
 
     public FixedBudgetManager(String name, double salary) {
         super(name, salary);
@@ -10,15 +10,15 @@ public class FixedBudgetManager extends Manager {
 
     @Override
     public boolean canHire(Employee e) {
-        return (getTotalEmpSalary()+e.getSalary())< Budget;
+        return (getTotalEmployeesSalary()+e.getSalary())< budget;
     }
 
     @Override
     public boolean isSatisfied() {
-        return (getSalary()>20000 && (Budget -getTotalEmpSalary())<15000);
+        return (getSalary()>20000 && (budget - getTotalEmployeesSalary())<15000);
     }
 
-    private int getTotalEmpSalary(){
+    private int getTotalEmployeesSalary(){
         int sum=0;
         for(Employee e : Hired) {
             sum+=e.getSalary();
@@ -27,10 +27,10 @@ public class FixedBudgetManager extends Manager {
     }
 
     public int getBudget() {
-        return Budget;
+        return budget;
     }
 
     public void setBudget(int budget) {
-        Budget = budget;
+        this.budget = budget;
     }
 }

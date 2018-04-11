@@ -6,16 +6,16 @@ public class CEO {
 
     private String name;
 
-    private ArrayList<Manager> Managers = new ArrayList<>();
+    private ArrayList<AbstractManager> Managers = new ArrayList<>();
 
     public CEO(String name){ this.name = name; }
 
-    public CEO addManager(Manager m) {
+    public CEO addManager(AbstractManager m) {
         Managers.add(m);
         return this;
     }
 
-    public ArrayList<Manager> getManagers() {
+    public ArrayList<AbstractManager> getManagers() {
         return Managers;
     }
 

@@ -34,7 +34,7 @@ public class ManagersTest {
     }
 
     @Test
-    void cantHireOnLowBudget() {
+    void shouldNotHireOnLowBudget() {
         FixedBudgetManager m1 = new FixedBudgetManager("A", 30000);
         m1.setBudget(400);
         Employee e1 = new Employee("B", 3000);
@@ -42,7 +42,7 @@ public class ManagersTest {
     }
 
     @Test
-    void cantHireWhenRunsOutOfLimit() {
+    void shouldNotHireWhenRunsOutOfLimit() {
         FixedEmploeeNumberManager m1 = new FixedEmploeeNumberManager("A", 30000);
         m1.setEmployeeLimit(4);
         Employee e1 = new Employee("B", 3000);
@@ -63,7 +63,7 @@ public class ManagersTest {
     }
 
     @Test
-    void cantHireWhenRunsOutOfBudget() {
+    void shouldNotHireWhenRunsOutOfBudget() {
         FixedBudgetManager m1 = new FixedBudgetManager("A", 30000);
         m1.setBudget(40000);
         Employee e1 = new Employee("B", 30000);

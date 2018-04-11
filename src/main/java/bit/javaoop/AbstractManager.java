@@ -2,11 +2,11 @@ package bit.javaoop;
 
 import java.util.ArrayList;
 
-public abstract class Manager extends AbstractEmployee {
+public abstract class AbstractManager extends AbstractEmployee {
 
     protected ArrayList<Employee> Hired = new ArrayList<>();
 
-    public Manager(String name, double salary) {
+    public AbstractManager(String name, double salary) {
         super(name, salary);
     }
 
