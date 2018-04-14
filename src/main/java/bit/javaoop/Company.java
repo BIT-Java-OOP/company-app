@@ -1,5 +1,9 @@
 package bit.javaoop;
 
+import bit.javaoop.company.AbstractEmployee;
+import bit.javaoop.company.manager.CEO;
+import bit.javaoop.company.manager.AbstractManager;
+
 public class Company {
 
     private String name;
@@ -16,10 +20,10 @@ public class Company {
 
         companyHierarchyDisplayBuilder.append(currentCEO.getName() + " - CEO\n");
 
-        for (Manager manager : currentCEO.getListOfManagers()) {
-            companyHierarchyDisplayBuilder.append("\t"+manager.getName() + " - Manager\n");
+        for (AbstractManager manager : currentCEO.getListOfManagers()) {
+            companyHierarchyDisplayBuilder.append("\t" + manager.getName() + " - Manager," + manager.getEmploymentPolicy().getPolicy() + "\n");
             for (AbstractEmployee employee : manager.getListOfEmployees()) {
-                companyHierarchyDisplayBuilder.append("\t\t"+employee.getName() + " - Employee\n");
+                companyHierarchyDisplayBuilder.append("\t\t" + employee.getName() + " - Employee,"+employee.getEmploymentPolicy().getPolicy()+"\n");
             }
         }
 
