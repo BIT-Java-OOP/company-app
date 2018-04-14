@@ -18,6 +18,7 @@ class FixedEmployeeNumberManagerTest {
 
     @Test
     void shouldNotBeSatisfiedDueToSalary() {
+
         //given
         AbstractManager lowSalaryManager = new FixedEmployeeNumberManager("Pan manager", 10_000, 0);
 
@@ -30,8 +31,9 @@ class FixedEmployeeNumberManagerTest {
 
     @Test
     void shouldNotBeSatisfiedDueToFreeSpots() {
+
         //given
-        AbstractManager lowSalaryManager = new FixedEmployeeNumberManager("Pan manager", 40_000,6);
+        AbstractManager lowSalaryManager = new FixedEmployeeNumberManager("Pan manager", 40_000, 6);
 
         //when
         boolean result = lowSalaryManager.isSatisfied();
@@ -42,6 +44,7 @@ class FixedEmployeeNumberManagerTest {
 
     @Test
     void shouldBeSatisfied() {
+
         //given
         AbstractManager highSalaryManager = new FixedEmployeeNumberManager("Bogaty pan manager", 50_000, 0);
 
@@ -54,6 +57,7 @@ class FixedEmployeeNumberManagerTest {
 
     @Test
     void shouldBeHired() {
+
         //given
         AbstractManager managerWhoHasFreeSpots = new FixedEmployeeNumberManager("Pan Manager", 50_000, 10);
         AbstractEmployee someoneWhoNeedsAJob = new Employee("Gosia", 3_000, new GrossSalaryCalculator(), new EmploymentContract());
@@ -67,6 +71,7 @@ class FixedEmployeeNumberManagerTest {
 
     @Test
     void shouldNotBeHired() {
+
         //given
         AbstractManager managerWhoDoesNotHaveFreeSpots = new FixedEmployeeNumberManager("Pan Manager", 50_000, 0);
         AbstractEmployee someoneWhoNeedsAJob = new Employee("Gosia", 3_000, new GrossSalaryCalculator(), new EmploymentContract());

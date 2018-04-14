@@ -34,8 +34,7 @@ public class FixedEmployeeNumberManager extends AbstractManager {
             getListOfEmployees().add(employee);
             spotsLeft--;
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 }
