@@ -6,16 +6,11 @@ import bit.javaoop.company.AbstractEmployee;
 import bit.javaoop.company.Employee;
 import bit.javaoop.employment.B2B;
 import bit.javaoop.employment.EmploymentContract;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EmployeeTest {
-
-    @BeforeEach
-    void setUp() {
-    }
 
     @Test
     void shouldBeSatisfied() {

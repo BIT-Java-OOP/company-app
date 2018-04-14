@@ -6,15 +6,11 @@ import bit.javaoop.company.Employee;
 import bit.javaoop.company.manager.AbstractManager;
 import bit.javaoop.company.manager.FixedEmployeeNumberManager;
 import bit.javaoop.employment.EmploymentContract;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FixedEmployeeNumberManagerTest {
-    @BeforeEach
-    void setUp() {
-    }
 
     @Test
     void shouldNotBeSatisfiedDueToSalary() {
