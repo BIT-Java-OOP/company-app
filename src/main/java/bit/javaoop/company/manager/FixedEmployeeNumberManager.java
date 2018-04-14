@@ -1,10 +1,8 @@
 package bit.javaoop.company.manager;
 
-
 import bit.javaoop.calculator.SalaryCalculator;
 import bit.javaoop.company.AbstractEmployee;
 import bit.javaoop.employment.EmploymentPolicy;
-
 
 import java.util.List;
 
@@ -15,14 +13,15 @@ public class FixedEmployeeNumberManager extends AbstractManager {
     private int spotsLeft;
 
     public FixedEmployeeNumberManager(String name, double salary, SalaryCalculator salaryCalculator, EmploymentPolicy employmentPolicy, List<AbstractEmployee> listOfEmployees, int initialLimitOfEmployees) {
-        super(name, salary,salaryCalculator,employmentPolicy,listOfEmployees);
+        super(name, salary, salaryCalculator, employmentPolicy, listOfEmployees);
         this.spotsLeft = initialLimitOfEmployees;
     }
 
-    public FixedEmployeeNumberManager(String name, double salary,int initialLimitOfEmployees){
-        super(name,salary);
+    public FixedEmployeeNumberManager(String name, double salary, int initialLimitOfEmployees) {
+        super(name, salary);
         this.spotsLeft = initialLimitOfEmployees;
     }
+
 
     @Override
     public boolean isSatisfied() {

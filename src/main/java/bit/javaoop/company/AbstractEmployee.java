@@ -10,15 +10,12 @@ public abstract class AbstractEmployee {
     private EmploymentPolicy employmentPolicy;
     public SalaryCalculator salaryCalculator;
 
-
-
-    public AbstractEmployee(String name, double salary, SalaryCalculator salaryCalculator,EmploymentPolicy employmentPolicy) {
+    public AbstractEmployee(String name, double salary, SalaryCalculator salaryCalculator, EmploymentPolicy employmentPolicy) {
         this.name = name;
         this.salary = salary;
         this.salaryCalculator = salaryCalculator;
         this.employmentPolicy = employmentPolicy;
     }
-
 
 
     public EmploymentPolicy getEmploymentPolicy() {
@@ -31,7 +28,7 @@ public abstract class AbstractEmployee {
         return name;
     }
 
-    public double getSalary(){
+    public double getSalary() {
         return salaryCalculator.getActualSalary(salary);
     }
 

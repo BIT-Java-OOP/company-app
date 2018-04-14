@@ -7,9 +7,8 @@ public class Employee extends AbstractEmployee {
 
     private static final int SATISFYING_SALARY = 10_000;
 
-
-    public Employee(String name, double salary, SalaryCalculator salaryCalculator,EmploymentPolicy employmentPolicy) {
-        super(name,salary, salaryCalculator,employmentPolicy );
+    public Employee(String name, double salary, SalaryCalculator salaryCalculator, EmploymentPolicy employmentPolicy) {
+        super(name, salary, salaryCalculator, employmentPolicy);
     }
 
 
@@ -17,7 +16,6 @@ public class Employee extends AbstractEmployee {
     public boolean isSatisfied() {
         return getSalary() > SATISFYING_SALARY;
     }
-
 
 
 }

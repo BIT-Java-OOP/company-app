@@ -1,6 +1,6 @@
 package bit.javaoop.employment;
 
-public class B2B implements EmploymentPolicy{
+public class B2B implements EmploymentPolicy {
 
     @Override
     public String getPolicy() {
