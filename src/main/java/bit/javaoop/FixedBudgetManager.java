@@ -5,12 +5,14 @@ public class FixedBudgetManager extends AbstractManager{
     public static final int SATISFYING_SALARY = 20_000;
     public static final int SATISFYING_BUDGET = 15_000;
     private int budget;
-    public FixedBudgetManager(String name, double salary, int budget) {
-        super(name, salary);
+
+    public FixedBudgetManager(String name, double salary, SalaryCalculator salaryCalculator, EmploymentPolicy employmentPolicy, int budget) {
+        super(name, salary, salaryCalculator, employmentPolicy);
         this.budget = budget;
     }
+
     public boolean isSatisfied(){
-        return getSalary() > SATISFYING_SALARY && getBudget() < SATISFYING_BUDGET; // ctr + alt + c
+        return getActualSalary(getSalary()) > SATISFYING_SALARY && getBudget() < SATISFYING_BUDGET; // ctr + alt + c
     }
     public boolean canHire(AbstractEmployee employee){
         int result = 0;
@@ -32,5 +34,11 @@ public class FixedBudgetManager extends AbstractManager{
 
     public int getBudget() {
         return budget;
+    }
+
+
+    @Override
+    public double getActualSalary(double salary) {
+        return getSalaryCalculator().getActualSalary(salary);
     }
 }

@@ -6,29 +6,47 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EmployeeTest {
-
+    final double NICE_SALARY = 10_000;
+    final double WORST_SALARY = 5_000;
     @BeforeEach
     void setUp() {
+
     }
     @Test
     void shouldBeSaisfied(){
-        AbstractEmployee employee = new Employee("Stefan",25_000);
-        assertTrue(employee.isSatisfied());
-    }
-    @Test
-    void shouldNotBeSaitisfied(){
-        AbstractEmployee employee = new Employee("kek",8_000);
+        //given
+        AbstractEmployee employee = new Employee("Stefan",NICE_SALARY, new WorstSalaryCalculator(), new B2BEmploymentPolicy());
+        //then
         assertFalse(employee.isSatisfied());
     }
     @Test
+    void shouldNotBeSaitisfied(){
+        //given
+        AbstractEmployee employee = new Employee("kek",NICE_SALARY, new NiceSalaryCalculator(), new NormalEmploymentPolicy());
+        //then
+        assertFalse(employee.isSatisfied());
+    }
+    @Test
+    void shouldDecreaseSalary(){
+        //given
+        AbstractEmployee employee = new Employee("kek",NICE_SALARY, new WorstSalaryCalculator(), new NormalEmploymentPolicy());
+        //then
+        assertTrue(employee.getActualSalary(employee.getSalary()) == WORST_SALARY);
+
+    }
+    @Test
     void checkName(){
-        AbstractEmployee employee = new Employee("maciek", 2_000);
+        //given
+        AbstractEmployee employee = new Employee("maciek", 2_000, new WorstSalaryCalculator(), new NormalEmploymentPolicy());
+        //then
         assertTrue(employee.getName().equals("maciek"));
     }
     @Test
     void checkSalary(){
-        AbstractEmployee employee = new Employee("maciek", 2_000);
-        assertTrue(employee.getSalary() == 2_000);
+        //given
+        AbstractEmployee employee = new Employee("maciek", 2_000, new WorstSalaryCalculator(), new NormalEmploymentPolicy());
+        //then
+        assertTrue(employee.getActualSalary(employee.getSalary()) == 1_000);
     }
 
 }

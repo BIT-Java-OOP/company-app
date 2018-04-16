@@ -11,16 +11,20 @@ class FixedEmployeeNumberManagerTest {
 
     @BeforeEach
     void setUp(){
-        manager = new FixedEmployeeNumberManager("Macko",25_000, 2);
-        AbstractEmployee employee = new Employee("Robak1", 10_000);
+        manager = new FixedEmployeeNumberManager("Macko",25_000, new NiceSalaryCalculator(),new NormalEmploymentPolicy(),2);
+        AbstractEmployee employee = new Employee("Robak1", 10_000, new NiceSalaryCalculator(), new B2BEmploymentPolicy());
         manager.hire(employee);
     }
 
     @Test
     void shouldBeSatisfied() {
-        AbstractEmployee employee2 = new Employee("Robak2", 10_000);
+        //given
+        AbstractEmployee employee2 = new Employee("Robak2", 10_000, new NiceSalaryCalculator(), new NormalEmploymentPolicy());
+
+        //when
         manager.hire(employee2);
 
+        //then
         assertTrue(manager.isSatisfied());
     }
 
@@ -32,15 +36,22 @@ class FixedEmployeeNumberManagerTest {
 
     @Test
     void shouldNotHire(){
-        AbstractEmployee employee2 = new Employee("Robak2", 10_000);
-        AbstractEmployee employee3 = new Employee("Robak3", 10_000);
+        //given
+        AbstractEmployee employee2 = new Employee("Robak2", 10_000,new WorstSalaryCalculator(), new NormalEmploymentPolicy());
+        AbstractEmployee employee3 = new Employee("Robak3", 10_000, new WorstSalaryCalculator(), new NormalEmploymentPolicy());
+
+        //when
         manager.hire(employee2);
 
+        //then
         assertFalse(manager.canHire(employee3));
     }
     @Test
     void shouldHire(){
-        AbstractEmployee employee2 = new Employee("Robak2", 10_000);
+        //given
+        AbstractEmployee employee2 = new Employee("Robak2", 10_000, new WorstSalaryCalculator(), new B2BEmploymentPolicy());
+
+        //then
         assertTrue(manager.canHire(employee2));
     }
 

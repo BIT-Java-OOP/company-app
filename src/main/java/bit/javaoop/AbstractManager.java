@@ -3,20 +3,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractManager extends AbstractEmployee {
-    private List<AbstractEmployee> EmployeeList = new ArrayList<>();
-    public AbstractManager(String name, double salary) {
-        super(name,salary);
+    private List<AbstractEmployee> employeeList = new ArrayList<>();
+    public AbstractManager(String name, double salary, SalaryCalculator salaryCalculator, EmploymentPolicy employmentPolicy) {
+        super(name,salary,salaryCalculator, employmentPolicy);
     }
 
     public List<AbstractEmployee> getEmployeeList() {
-        return EmployeeList;
+        return employeeList;
     }
 
     @Override
     public String toString(){
         StringBuilder output;
         output = new StringBuilder("\t\t" + getName() + " - Manager\n");
-        for (AbstractEmployee aEmployeeList : EmployeeList) {                              //for each loop better than iterate like in cpp
+        for (AbstractEmployee aEmployeeList : employeeList) {                              //for each loop better than iterate like in cpp
             output.append("\t\t\t").append(aEmployeeList.getName()).append(" - Employee\n"); // stringBuilder than  output +=
         }
         return output.toString();
