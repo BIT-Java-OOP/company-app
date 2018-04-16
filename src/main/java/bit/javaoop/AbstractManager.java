@@ -9,16 +9,7 @@ public abstract class AbstractManager extends AbstractEmployee {
         super(name, salary);
     }
 
-    private List<AbstractEmployee> listOfEmployees = new ArrayList<>() {
-        @Override
-        public String toString() {
-            String text = "";
-            for (AbstractEmployee employee : listOfEmployees) {
-                text += employee.toString();
-            }
-            return text;
-        }
-    };
+    private List<AbstractEmployee> listOfEmployees = new ArrayList<>();
 
     public List<AbstractEmployee> getListOfEmployees() {
         return listOfEmployees;
@@ -26,7 +17,7 @@ public abstract class AbstractManager extends AbstractEmployee {
 
     public abstract boolean canHireNewEmployee();
 
-    public boolean hire(Employee employee) {
+    public boolean hireIfPossible(Employee employee) {
         if (canHireNewEmployee()) {
             listOfEmployees.add(employee);
             return true;
@@ -35,8 +26,4 @@ public abstract class AbstractManager extends AbstractEmployee {
         }
     }
 
-    @Override
-    public String toString() {
-        return "    " + getName() + " - Manager\n" + listOfEmployees.toString();
-    }
 }

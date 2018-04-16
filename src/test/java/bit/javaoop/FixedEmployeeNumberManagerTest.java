@@ -15,7 +15,7 @@ public class FixedEmployeeNumberManagerTest {
         //given
         FixedEmployeeNumberManager manager = new FixedEmployeeNumberManager("Manager_1", 25_000, 2);
         //when
-        boolean result = manager.hire(employee_1) && manager.hire(employee_2);
+        boolean result = manager.hireIfPossible(employee_1) && manager.hireIfPossible(employee_2);
         //then
         assertTrue(result);
     }
@@ -25,7 +25,7 @@ public class FixedEmployeeNumberManagerTest {
         //given
         FixedEmployeeNumberManager manager = new FixedEmployeeNumberManager("Manager_1", 25_000, 2);
         //when
-        boolean result = manager.hire(employee_1) && manager.hire(employee_2) && manager.hire(employee_3);
+        boolean result = manager.hireIfPossible(employee_1) && manager.hireIfPossible(employee_2) && manager.hireIfPossible(employee_3);
         //then
         assertFalse(result);
     }
@@ -34,8 +34,8 @@ public class FixedEmployeeNumberManagerTest {
     void shouldBeSatisfied() {
         //given
         FixedEmployeeNumberManager manager = new FixedEmployeeNumberManager("Manager_1", 25_000, 2);
-        manager.hire(employee_1);
-        manager.hire(employee_2);
+        manager.hireIfPossible(employee_1);
+        manager.hireIfPossible(employee_2);
         //when
         boolean result = manager.isSatisfied();
         //then

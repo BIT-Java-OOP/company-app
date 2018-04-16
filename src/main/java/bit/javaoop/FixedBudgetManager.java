@@ -9,15 +9,7 @@ public class FixedBudgetManager extends AbstractManager {
 
     private double fixedBudget;
 
-    public double getFixedBudget() {
-        return fixedBudget;
-    }
-
-    public void setFixedBudget(double fixedBudget) {
-        this.fixedBudget = fixedBudget;
-    }
-
-    private double sumOfEmployeesSalary() {
+    private double getEmployeesSalary() {
         double sumOfEmployeesSalary = 0;
         for (AbstractEmployee employee : getListOfEmployees())
             sumOfEmployeesSalary += employee.getSalary();
@@ -26,11 +18,15 @@ public class FixedBudgetManager extends AbstractManager {
 
     @Override
     public boolean canHireNewEmployee() {
-        return (fixedBudget - sumOfEmployeesSalary()) >= 0;
+        return (getActualBudget()) >= 0;
     }
 
     @Override
     public boolean isSatisfied() {
-        return (getSalary() > 20_000 && (fixedBudget - sumOfEmployeesSalary()) < 15_000);
+        return (getSalary() > 20_000 && getActualBudget() < 15_000);
+    }
+
+    private double getActualBudget() {
+        return fixedBudget - getEmployeesSalary();
     }
 }

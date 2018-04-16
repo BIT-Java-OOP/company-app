@@ -16,7 +16,7 @@ class FixedBudgetManagerTest {
         //given
         FixedBudgetManager manager = new FixedBudgetManager("Manager_1", 25_000, 30_000);
         //when
-        boolean result = manager.hire(employee_1) && manager.hire(employee_2);
+        boolean result = manager.hireIfPossible(employee_1) && manager.hireIfPossible(employee_2);
         //then
         assertTrue(result);
     }
@@ -26,7 +26,7 @@ class FixedBudgetManagerTest {
         //given
         FixedBudgetManager manager = new FixedBudgetManager("Manager_1", 25_000, 30_000);
         //when
-        boolean result = manager.hire(employee_1) && manager.hire(employee_2) && manager.hire(employee_3);
+        boolean result = manager.hireIfPossible(employee_1) && manager.hireIfPossible(employee_2) && manager.hireIfPossible(employee_3);
         //then
         assertTrue(result);
     }
@@ -35,8 +35,8 @@ class FixedBudgetManagerTest {
     void shouldBeSatisfied() {
         //given
         FixedBudgetManager manager = new FixedBudgetManager("Manager_1", 25_000, 30_000);
-        manager.hire(employee_1);
-        manager.hire(employee_2);
+        manager.hireIfPossible(employee_1);
+        manager.hireIfPossible(employee_2);
         //when
         boolean result = manager.isSatisfied();
         //then

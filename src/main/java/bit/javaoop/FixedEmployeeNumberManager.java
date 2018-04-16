@@ -1,5 +1,8 @@
 package bit.javaoop;
 
+import java.lang.reflect.Array;
+import java.util.LinkedList;
+
 public class FixedEmployeeNumberManager extends AbstractManager {
     private int employeesMaxCount;
 

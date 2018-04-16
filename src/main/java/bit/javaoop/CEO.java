@@ -5,26 +5,9 @@ import java.util.List;
 
 public class CEO {
     private String name;
-    private List<AbstractManager> listOfManagers = new ArrayList<>() {
-        @Override
-        public String toString() {
-            String text = "";
-            for(AbstractManager manager : listOfManagers){
-                text += manager.toString();
-            }
-            return text;
-        }
-    };
+    private List<AbstractManager> listOfManagers = new ArrayList<>();
 
     public CEO(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 
@@ -32,7 +15,11 @@ public class CEO {
         return listOfManagers;
     }
 
-    public void hireManagerToList(AbstractManager manager) {
+    public void hireManager(AbstractManager manager) {
         listOfManagers.add(manager);
+    }
+
+    public String getName() {
+        return name;
     }
 }
