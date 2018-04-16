@@ -8,7 +8,7 @@ public abstract class AbstractEmployee {
     private double salary;
     private String name;
     private EmploymentPolicy employmentPolicy;
-    public SalaryCalculator salaryCalculator;
+    private SalaryCalculator salaryCalculator;
 
     public AbstractEmployee(String name, double salary, SalaryCalculator salaryCalculator, EmploymentPolicy employmentPolicy) {
         this.name = name;
@@ -16,7 +16,6 @@ public abstract class AbstractEmployee {
         this.salaryCalculator = salaryCalculator;
         this.employmentPolicy = employmentPolicy;
     }
-
 
     public EmploymentPolicy getEmploymentPolicy() {
         return employmentPolicy;
