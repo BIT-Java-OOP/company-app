@@ -26,12 +26,18 @@ public abstract class Manager extends AbstractEmployee {
 
     @Override
     public String toString() {
-        StringBuilder resultBuilder = new StringBuilder(getName() + " - Manager\n");
-        for (Employee employee : employeeList) {
-            resultBuilder.append("\t").append(employee.toString()).append("\n");
+        StringBuilder string = new StringBuilder();
+
+        string.append(getName());
+        string.append(" - Manager\n");
+
+        for (Employee employee : getEmployeeList()) {
+            string.append("\t");
+            string.append(employee.getName());
+            string.append(" - Employee\n");
         }
-        String result = resultBuilder.toString();
-        result = result.substring(0, result.length() - 1);
+
+        String result = string.toString();
         return result;
     }
 }

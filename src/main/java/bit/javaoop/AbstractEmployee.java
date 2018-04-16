@@ -1,10 +1,11 @@
 package bit.javaoop;
 
-public abstract class AbstractEmployee extends NamedObject {
+public abstract class AbstractEmployee{
     private double salary;
+    private final String name;
 
     public AbstractEmployee(String name, double salary) {
-        super(name);
+        this.name = name;
         this.salary = salary;
     }
 
@@ -16,5 +17,9 @@ public abstract class AbstractEmployee extends NamedObject {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public String getName(){
+        return name;
     }
 }

@@ -1,10 +1,10 @@
 package bit.javaoop;
 
-public class Company extends NamedObject {
+public class Company {
     private ChiefExecutiveOfficer CEO;
-
+    private final String name;
     public Company(String name, ChiefExecutiveOfficer CEO) {
-        super(name);
+        this.name = name;
         this.CEO = CEO;
     }
 
@@ -18,6 +18,9 @@ public class Company extends NamedObject {
 
     @Override
     public String toString() {
-        return getName() + ":\n" + CEO.toString();
+        return name + ":\n" + CEO.toString();
+    }
+    public String getName(){
+        return name;
     }
 }

@@ -1,27 +1,42 @@
 package bit.javaoop;
 
 import java.util.LinkedList;
+import java.util.List;
 
-public class ChiefExecutiveOfficer extends NamedObject {
-    private LinkedList<Manager> managerList;
+public class ChiefExecutiveOfficer {
+    private List<Manager> managerList;
+    private final String name;
 
     public ChiefExecutiveOfficer(String name) {
-        super(name);
+        this.name = name;
         this.managerList = new LinkedList<Manager>();
     }
 
     @Override
     public String toString() {
-        StringBuilder resultBuilder = new StringBuilder(getName() + " - CEO\n");
+        StringBuilder string = new StringBuilder();
+
+        string.append(name);
+        string.append(" - CEO\n");
+
         for (Manager manager : managerList) {
-            resultBuilder.append("\t").append(manager.toString().replaceAll("\t", "\t\t")).append("\n");
+            string.append("\t");
+            string.append(manager.getName());
+            string.append(" - Manager\n");
+            for (Employee employee: manager.getEmployeeList()) {
+                string.append("\t\t");
+                string.append(employee.getName());
+                string.append(" - Employee\n");
+            }
         }
-        String result = resultBuilder.toString();
-        result = result.substring(0, result.length() - 1);
+        String result = string.toString();
         return result;
     }
 
-    public LinkedList<Manager> getManagerList() {
+    public List<Manager> getManagerList() {
         return managerList;
+    }
+    public String getName(){
+        return name;
     }
 }

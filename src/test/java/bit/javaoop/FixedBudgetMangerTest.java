@@ -39,7 +39,6 @@ public class FixedBudgetMangerTest {
 
     @Test
     void isSatisfiedTest() {
-
         Manager manager1 = new FixedBudgetManager("Steve Jobs", 30_000, 80_000);
         manager1.hireEmployee(new Employee("Garek Majęcki", 60_000));
         manager1.hireEmployee(new Employee("Alan Turing", 10_000));
@@ -63,7 +62,7 @@ public class FixedBudgetMangerTest {
 
         String string = fixedBudgetManager.toString();
 
-        assertEquals(string, "Steve Jobs - Manager\n\tAlan Turing - Employee");
+        assertEquals(string, "Steve Jobs - Manager\n\tAlan Turing - Employee\n");
     }
 
 }

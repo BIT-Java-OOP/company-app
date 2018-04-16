@@ -22,7 +22,7 @@ public class CompanyTest {
                         "Oktawian August - CEO\n" +
                         "\tPoncjusz Piłat - Manager\n" +
                         "\t\tBarabasz - Employee\n" +
-                        "\t\tŁukasz Stanisławowski - Employee",
+                        "\t\tŁukasz Stanisławowski - Employee\n",
                 result);
     }
 
