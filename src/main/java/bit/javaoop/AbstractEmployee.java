@@ -1,12 +1,15 @@
 package bit.javaoop;
 
-public abstract class AbstractEmployee {
+public abstract class AbstractEmployee implements HasSalary{
+
     private String name;
     private double salary;
+    private SalaryCalculator salaryCalculator;
 
-    public AbstractEmployee(String name, double salary) {
+    public AbstractEmployee(String name, double salary, SalaryCalculator salaryCalculator) {
         this.name = name;
         this.salary = salary;
+        this.salaryCalculator = salaryCalculator;
     }
 
     public abstract boolean isSatisfied();
@@ -19,8 +22,9 @@ public abstract class AbstractEmployee {
         this.name = name;
     }
 
+    @Override
     public double getSalary() {
-        return salary;
+        return salaryCalculator.getActualSalary(salary);
     }
 
     public void setSalary(double salary) {

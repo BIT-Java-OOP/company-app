@@ -1,10 +1,11 @@
 package bit.javaoop;
 
-public class FixedEmploeeNumberManager extends AbstractManager {
+public class FixedEmployeeNumberManager extends AbstractManager {
+
 
     private int employeeLimit = 15;
 
-    public FixedEmploeeNumberManager(String name, double salary) {
+    public FixedEmployeeNumberManager(String name, double salary) {
         super(name, salary);
     }
 

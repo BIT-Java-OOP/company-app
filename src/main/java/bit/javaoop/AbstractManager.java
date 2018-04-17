@@ -6,8 +6,13 @@ public abstract class AbstractManager extends AbstractEmployee {
 
     protected ArrayList<Employee> Hired = new ArrayList<>();
 
-    public AbstractManager(String name, double salary) {
-        super(name, salary);
+    public AbstractManager(String name, double salary, SalaryCalculator salaryCalculator) {
+        super(name, salary, salaryCalculator);
+    }
+
+    @Override
+    public boolean isSatisfied() {
+        return false;
     }
 
     public abstract boolean canHire(Employee e);
