@@ -1,4 +1,4 @@
-package bit.javaoop;
+package bit.javaoop.company;
 
 public class Company {
     private String name;
