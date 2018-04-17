@@ -1,4 +1,4 @@
-package bit.javaoop;
+package bit.javaoop.workers;
 
 import java.util.ArrayList;
 

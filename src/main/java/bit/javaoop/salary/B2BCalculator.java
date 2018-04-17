@@ -1,4 +1,6 @@
-package bit.javaoop;
+package bit.javaoop.salary;
+
+import bit.javaoop.salary.SalaryCalculator;
 
 public class B2BCalculator implements SalaryCalculator {
 

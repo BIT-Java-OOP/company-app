@@ -1,11 +1,13 @@
-package bit.javaoop;
+package bit.javaoop.workers;
+
+import bit.javaoop.salary.SalaryCalculator;
 
 public class FixedBudgetManager extends AbstractManager {
 
     private int budget =100000;
 
-    public FixedBudgetManager(String name, double salary) {
-        super(name, salary);
+    public FixedBudgetManager(String name, double salary, SalaryCalculator salaryCalculator) {
+        super(name, salary, salaryCalculator);
     }
 
     @Override

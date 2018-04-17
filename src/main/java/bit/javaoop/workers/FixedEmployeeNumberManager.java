@@ -1,12 +1,14 @@
-package bit.javaoop;
+package bit.javaoop.workers;
+
+import bit.javaoop.salary.SalaryCalculator;
 
 public class FixedEmployeeNumberManager extends AbstractManager {
 
 
     private int employeeLimit = 15;
 
-    public FixedEmployeeNumberManager(String name, double salary) {
-        super(name, salary);
+    public FixedEmployeeNumberManager(String name, double salary, SalaryCalculator salaryCalculator) {
+        super(name, salary, salaryCalculator);
     }
 
     @Override

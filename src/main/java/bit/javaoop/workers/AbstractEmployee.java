@@ -1,6 +1,9 @@
-package bit.javaoop;
+package bit.javaoop.workers;
 
-public abstract class AbstractEmployee implements HasSalary{
+import bit.javaoop.salary.HasSalary;
+import bit.javaoop.salary.SalaryCalculator;
+
+public abstract class AbstractEmployee implements HasSalary {
 
     private String name;
     private double salary;

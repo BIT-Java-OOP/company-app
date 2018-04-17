@@ -1,10 +1,10 @@
-package bit.javaoop;
+package bit.javaoop.workers;
 
 public class Company {
 
     private String name;
 
-    private CEO CEO;
+    private bit.javaoop.workers.CEO CEO;
 
     public Company(CEO ceo, String name){
         CEO=ceo; this.name=name;

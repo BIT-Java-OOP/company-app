@@ -1,4 +1,4 @@
-package bit.javaoop;
+package bit.javaoop.salary;
 
 public interface SalaryCalculator {
 
