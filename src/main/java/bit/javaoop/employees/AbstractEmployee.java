@@ -1,11 +1,9 @@
-package bit.javaoop.employeesPackage;
-
-import bit.javaoop.managersPackage.Manager;
+package bit.javaoop.employees;
 
 public abstract class AbstractEmployee {
     private String name;
     private double salary;
-    public double satisfyingSalary;
+
 
     public AbstractEmployee(String name, double salary) {
         this.name = name;
@@ -24,11 +22,5 @@ public abstract class AbstractEmployee {
     }
 
 
-    public String tellName(Employee employee) {
-        return employee.getName() + " - Employee";
-    }
-
-    public String tellName(Manager manager) {
-        return manager.getName() + " - Manager";
-    }
+    public abstract String toString();
 }

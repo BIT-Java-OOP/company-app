@@ -1,6 +1,6 @@
 package bit.javaoop;
 
-import bit.javaoop.employeesPackage.Employee;
+import bit.javaoop.employees.Employee;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
