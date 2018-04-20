@@ -27,7 +27,7 @@ public class Main {
         AbstractEmployee employee3 = new Employee("Janek", 5_000, new NetRevenueCalculator(), new EmploymentContract());
         AbstractEmployee employee4 = new Employee("Jagoda", 5_200, new GrossSalaryCalculator(), new B2B());
 
-        
+
         AbstractManager manager1 = new FixedBudgetManager("Kasia Majęcka", 10_000, new GrossSalaryCalculator(), new EmploymentContract(), new ArrayList<>(), 14_000);
         AbstractManager manager2 = new FixedEmployeeNumberManager("Zenek Kapała", 15_000, new NetRevenueCalculator(), new EmploymentContract(), new ArrayList<>(), 10);
 
