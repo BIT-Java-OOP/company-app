@@ -68,6 +68,7 @@ public class LimitedCircularBuffer<E> {
             head = limitedCircularBuffer.indexOf(headElement);
         }
     }
+    
 
     public E getNext(E element) {
         if (limitedCircularBuffer.indexOf(element) + 1 == limit) {
@@ -77,3 +78,10 @@ public class LimitedCircularBuffer<E> {
     }
 
 }
+
+
+
+
+
+
+
