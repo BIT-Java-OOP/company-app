@@ -16,12 +16,16 @@ public abstract class AbstractManager extends AbstractEmployee {
     public String toString(){
         StringBuilder output;
         output = new StringBuilder("\t\t" + getName() + " - Manager\n");
-        for (AbstractEmployee aEmployeeList : employeeList) {                              //for each loop better than iterate like in cpp
-            output.append("\t\t\t").append(aEmployeeList.getName()).append(" - Employee\n"); // stringBuilder than  output +=
+        for (AbstractEmployee e : employeeList) {                              //for each loop better than iterate like in cpp
+            output.append("\t\t\t").append(e.getName()).append(" - Employee\n"); // stringBuilder than  output +=
         }
         return output.toString();
     }
 
     public abstract void hire(AbstractEmployee employee);
     public abstract boolean canHire(AbstractEmployee employee);
+
+    public void streamOutput(){
+        employeeList.stream().forEach(System.out::println);
+    }
 }

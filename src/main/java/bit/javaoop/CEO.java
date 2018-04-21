@@ -1,6 +1,8 @@
 package bit.javaoop;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
+
 public class CEO {
 
     private String name;
@@ -29,10 +31,14 @@ public class CEO {
     @Override
     public String toString(){
         StringBuilder output;
-        output = new StringBuilder("\t" + getName() + " - CEO\n");
+        output = new StringBuilder(getName() + " - CEO\n");
         for (AbstractManager m : managerList) {
             output.append(m.toString());
         }
         return output.toString();
+    }
+
+    public void toStream(){
+        managerList.forEach(System.out::println);
     }
 }

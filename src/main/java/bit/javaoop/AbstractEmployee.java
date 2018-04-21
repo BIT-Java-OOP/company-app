@@ -23,4 +23,9 @@ public abstract class AbstractEmployee implements SalaryCalculator {
     public SalaryCalculator getSalaryCalculator(){
         return salaryCalculator;
     }
+
+    @Override
+    public String toString(){
+        return getName();
+    }
 }

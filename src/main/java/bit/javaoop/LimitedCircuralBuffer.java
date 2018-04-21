@@ -3,7 +3,7 @@ package bit.javaoop;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LimitedCircuralBuffer <E> {
+public class LimitedCircuralBuffer <E>{
     private final int limit;
     private List<E> limitedCircuralBuffer;
 

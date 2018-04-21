@@ -4,7 +4,7 @@ public class Company {
     private String name;
     private CEO employee;
 
-    public Company(String name) {  //constructors should be placed first, press ctr + alt + sfhit + L
+    public Company(String name) {
         this.name = name;
     }
 
@@ -25,5 +25,10 @@ public class Company {
     @Override
     public String toString() {
         return getName() + " - Company name\n" + employee.toString();
+    }
+
+    public void toStream(){
+        System.out.println(getName() + "- Company name");
+        employee.toStream();
     }
 }
