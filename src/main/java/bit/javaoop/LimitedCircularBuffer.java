@@ -5,77 +5,75 @@ import java.util.List;
 
 public class LimitedCircularBuffer<E> {
 
-    /*private*/ int limit;
-    /*private*/ static int lastSet;
-    /*private*/ List<E> limitedCircularBuffer;
+    private List<E> limitedCircularBuffer;
+    private int limit;
+    private int head;
+    private int tail;
 
     public LimitedCircularBuffer(int limit) {
         this.limit = limit;
         this.limitedCircularBuffer = new ArrayList<>();
-
     }
 
-    void add(E element){
-        if(limitedCircularBuffer.size()<limit){
-            limitedCircularBuffer.add(element);
-            lastSet++;
-        }else{
-            limitedCircularBuffer.remove(lastSet % limit);
-            limitedCircularBuffer.add(lastSet % limit,element);
-            lastSet++;
+    public int size() {
+        return limitedCircularBuffer.size();
+    }
+
+    public E get(int index) {
+        return limitedCircularBuffer.get(index);
+    }
+
+    public void add(E element) {
+        if (limitedCircularBuffer.size() == 0) {
+            limitedCircularBuffer.add(tail, element);
+        } else if (limitedCircularBuffer.size() < limit) {
+            if (head != 0) head = (head + 1) % limit;
+            tail = tail + 1 % limit;
+            limitedCircularBuffer.add(tail, element);
+            tail = limitedCircularBuffer.indexOf(element);
+        } else {
+            tail++;
+            tail = tail % limit;
+            head++;
+            head = head % limit;
+            limitedCircularBuffer.set(tail, element);
         }
-
     }
 
-    void remove(E element){
-        limitedCircularBuffer.remove(element);
-        lastSet--;
+    public E getPrevious(E element) {
+        int indexOfElement = limitedCircularBuffer.indexOf(element);
+        if (indexOfElement == 0) {
+            return limitedCircularBuffer.get(limit - 1);
+        }
+        return limitedCircularBuffer.get(indexOfElement - 1);
     }
 
-    E getNext(E element){
-        if(limitedCircularBuffer.indexOf(element)+1==limit){
+
+    public void remove(E element) {
+        E headElement = limitedCircularBuffer.get(head);
+        E tailElement = limitedCircularBuffer.get(tail);
+        if (limitedCircularBuffer.indexOf(element) == head) {
+            E newHeadElement = getNext(headElement);
+            limitedCircularBuffer.remove(element);
+            head = limitedCircularBuffer.indexOf(newHeadElement);
+            tail = limitedCircularBuffer.indexOf(tailElement);
+        } else if (limitedCircularBuffer.indexOf(element) == tail) {
+            E newTailElement = getPrevious(tailElement);
+            limitedCircularBuffer.remove(element);
+            tail = limitedCircularBuffer.indexOf(newTailElement);
+            head = limitedCircularBuffer.indexOf(headElement);
+        } else {
+            limitedCircularBuffer.remove(element);
+            tail = limitedCircularBuffer.indexOf(tailElement);
+            head = limitedCircularBuffer.indexOf(headElement);
+        }
+    }
+
+    public E getNext(E element) {
+        if (limitedCircularBuffer.indexOf(element) + 1 == limit) {
             return limitedCircularBuffer.get(0);
         }
-        return limitedCircularBuffer.get(limitedCircularBuffer.indexOf(element)+1);
+        return limitedCircularBuffer.get(limitedCircularBuffer.indexOf(element) + 1);
     }
 
-    public static void main(String[] args) {
-        LimitedCircularBuffer<String> x = new LimitedCircularBuffer<>(3);
-
-        x.add("hej");
-        System.out.println(lastSet);
-        System.out.println(x.limitedCircularBuffer.toString());
-        x.add("hola");
-        System.out.println(lastSet);
-        System.out.println(x.limitedCircularBuffer.toString());
-        x.add("buenosdias");
-        System.out.println(lastSet);
-        System.out.println(x.limitedCircularBuffer.toString());
-        x.add("buenos");
-        System.out.println(lastSet);
-        System.out.println(x.limitedCircularBuffer.toString());
-        x.add("corazon");
-        System.out.println(lastSet);
-        System.out.println(x.limitedCircularBuffer.toString());
-        x.add("sonrias");
-        System.out.println(lastSet);
-        System.out.println(x.limitedCircularBuffer.toString());
-        x.add("ubuntu");
-        System.out.println(lastSet);
-        System.out.println(x.limitedCircularBuffer.toString());
-
-        System.out.println(x.getNext("sonrias"));
-        System.out.println(x.getNext("corazon"));
-
-        x.remove("ubuntu");
-        System.out.println(lastSet);
-        System.out.println(x.limitedCircularBuffer.toString());
-        x.add("eeeee");
-        System.out.println(lastSet);
-        System.out.println(x.limitedCircularBuffer.toString());
-        x.add("mumu");
-        System.out.println(lastSet);
-        System.out.println(x.limitedCircularBuffer.toString());
-
-    }
 }
