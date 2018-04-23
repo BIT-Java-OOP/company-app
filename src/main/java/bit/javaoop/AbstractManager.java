@@ -1,9 +1,11 @@
 package bit.javaoop;
 
+import javax.lang.model.type.NullType;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractManager extends AbstractEmployee {
+
     protected List<AbstractEmployee> employees;
 
     public AbstractManager(String name, double salary) {
@@ -30,4 +32,5 @@ public abstract class AbstractManager extends AbstractEmployee {
     public String toString() {
         return getName() + " - Manager";
     }
+
 }

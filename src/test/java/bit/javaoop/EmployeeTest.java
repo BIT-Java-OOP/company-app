@@ -18,12 +18,14 @@ class EmployeeTest {
     }
 
     @Test
+
     void shouldNotBeSatisfied() {
         //given
         Employee lowSalaryEmployee = new Employee("Biedny pracownik", 10_000);
         //when
         boolean result = lowSalaryEmployee.isSatisfied();
         //then
+
         assertFalse(result);
     }
 }

@@ -3,10 +3,12 @@ package bit.javaoop;
 public abstract class AbstractEmployee {
     private final String name;
     private double salary;
+    private SalaryCalculator cal;
 
-    public AbstractEmployee(String name, double salary) {
+    public AbstractEmployee(String name, double salary, SalaryCalculator cal) {
         this.name = name;
         this.salary = salary;
+        this.cal = cal;
     }
 
     public abstract boolean isSatisfied();
@@ -16,11 +18,7 @@ public abstract class AbstractEmployee {
     }
 
     public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
+        return cal.getActualSalary(salary);
     }
 
     @Override

@@ -2,6 +2,7 @@ package bit.javaoop;
 
 public class Company {
 
+
     private String name;
     private Ceo ceo;
 
