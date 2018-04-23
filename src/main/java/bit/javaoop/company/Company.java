@@ -17,12 +17,12 @@ public class Company {
         StringBuilder sB = new StringBuilder("");
         sB.append(ceo.getName()).append(" - CEO\n");
 
-        for (AbstractManager m : ceo.getListOfManagers()) {
+        ceo.getListOfManagers().stream().forEach(m -> {
             sB.append("\t").append(m.getName()).append(" - Manager\n");
-            for (AbstractEmployee e : m.getListOfEmployees()) {
+            m.getListOfEmployees().stream().forEach(e -> {
                 sB.append("\t\t").append(e.getName()).append(" - Employee\n");
-            }
-        }
+            });
+        });
         return sB.toString();
     }
 }
