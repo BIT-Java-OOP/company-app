@@ -1,7 +1,7 @@
 package bit.javaoop;
 
-public abstract class AbstractEmployee  {
-    private String name;
+public abstract class AbstractEmployee {
+    private final String name;
     private double salary;
     private SalaryCalculator cal;
 
@@ -17,9 +17,12 @@ public abstract class AbstractEmployee  {
         return name;
     }
 
-
-
     public double getSalary() {
         return cal.getActualSalary(salary);
+    }
+
+    @Override
+    public String toString() {
+        return name + " - Employee";
     }
 }

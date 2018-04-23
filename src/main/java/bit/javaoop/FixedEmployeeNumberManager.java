@@ -2,6 +2,7 @@ package bit.javaoop;
 
 public class FixedEmployeeNumberManager extends AbstractManager {
 
+
     private double employeesLimit;
     private double hiredEmployess;
 
@@ -30,6 +31,10 @@ public class FixedEmployeeNumberManager extends AbstractManager {
 
     @Override
     public boolean isSatisfied() {
+
         return (getSalary()>20_000&&employeesLimit==0);
+
+        return getSalary() > 20_000 && !canHireEmployees();
+
     }
 }

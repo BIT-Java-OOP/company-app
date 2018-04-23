@@ -1,39 +1,46 @@
 package bit.javaoop;
 
 public class Company {
+
+
     private String name;
-    private CEO executive;
+    private Ceo ceo;
 
-
-    public Company(String name) {
+    public Company(String name, Ceo ceo) {
         this.name = name;
+        this.ceo = ceo;
     }
 
     public String getName() {
         return name;
     }
 
-    public CEO getExecutive() {
-        return executive;
+    public Ceo getCeo() {
+        return ceo;
     }
 
-    public void hireCEO(String name, double salary) {
-        executive = new CEO(name, salary);
-
+    public void hireCeo(Ceo ceo) {
+        this.ceo = ceo;
     }
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("");
-        result.append("\n\n\n\t\t\tCompany under name: " + this.getName() + "\n");
-        result.append("Led by CEO: "+ this.getExecutive().getName()+ "\n");
-        for(AbstractManager x: this.getExecutive().getManagers()){
-            result.append("Hiring a manager: " + x.getName()+ "\n   Who supervises employees: \n");
-                for(Employee y: x.getEmployees()){
-                    result.append("\t\t" + y.getName()+"\n");
-                }
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(ceo.toString());
+        stringBuilder.append("\n");
+
+        for(AbstractManager manager : ceo.getManagers()) {
+            stringBuilder.append("\t");
+            stringBuilder.append(manager.toString());
+            stringBuilder.append("\n");
+
+            for(AbstractEmployee employee : manager.getEmployees()) {
+                stringBuilder.append("\t\t");
+                stringBuilder.append(employee.toString());
+                stringBuilder.append("\n");
+            }
         }
 
-        return result.toString();
+        return stringBuilder.toString();
     }
 }

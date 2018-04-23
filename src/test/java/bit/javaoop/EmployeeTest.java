@@ -19,9 +19,13 @@ class EmployeeTest {
 
     @Test
 
-    void shouldBeDisgusted(){
-        Employee poorGuy = new Employee(("Biedak"),1000);
-        boolean result = poorGuy.isSatisfied();
+    void shouldNotBeSatisfied() {
+        //given
+        Employee lowSalaryEmployee = new Employee("Biedny pracownik", 10_000);
+        //when
+        boolean result = lowSalaryEmployee.isSatisfied();
+        //then
+
         assertFalse(result);
     }
 }
